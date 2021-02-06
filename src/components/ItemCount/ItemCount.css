@@ -1,0 +1,26 @@
+.countContainer{
+    padding: 1em;
+    width: 18em;
+    display: flex;
+    flex-direction: column  ;
+    background-color: rgb(184, 179, 179);
+    margin:1em;
+
+    align-items: center;
+
+}
+input{
+
+    width:4em!important;
+    text-align: center;
+}
+.imagenDmentira{
+    background-color: rgb(228, 245, 168);
+    height: 10em;
+    width: 18em;
+
+    text-align: center;
+}
+.padd{
+    padding:1em;
+}
