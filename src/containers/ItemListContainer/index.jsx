@@ -10,7 +10,6 @@ function ItemListContainer() {
     const [comprado,setComprado] = useState(0);
     const [contador,setContador] = useState(1);
 
-    const [isLoading, setIsLoading] = useState(false);
     const onAdd = () =>{
         setContador(contador+1);
     }
@@ -25,8 +24,9 @@ function ItemListContainer() {
         setComprado (0);
         setContador(0);
     }
-
+    
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     
     useEffect(()=>{
         setIsLoading(true)

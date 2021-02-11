@@ -1,0 +1,10 @@
+.detail{
+    margin-top: 1em;
+    text-align: center;
+    justify-content: center;
+    border-radius: 17%;
+    border: black;
+    background-color: yellow;
+    width:max-content;
+    padding:1em;
+}
