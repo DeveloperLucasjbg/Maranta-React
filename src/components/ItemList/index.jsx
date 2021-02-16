@@ -1,12 +1,12 @@
 import Item from "../Item"
-import Grid from '@material-ui/core/Grid';
+import './css.css'
 const ItemList = ({ products }) => {
     return (
-        <Grid container spacing={2}>
-          {products.map((products) => {
-              return  <Item key={products.id} product={products}/>
-          })}  
-        </Grid>
+        <div className='grid'>
+        {products.map((products) => {
+            return  <Item key={products.id} product={products}/>
+        })}  
+         </div>
     )   
 }
 export default ItemList

@@ -1,10 +1,11 @@
 .detail{
     margin-top: 1em;
+    padding: 2em;
     text-align: center;
     justify-content: center;
-    border-radius: 17%;
+    border-radius:3%;
     border: black;
-    background-color: yellow;
-    width:max-content;
+    background-color: rgb(184, 210, 237);
+    width:100%;
     padding:1em;
 }

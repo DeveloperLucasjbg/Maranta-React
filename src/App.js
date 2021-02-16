@@ -1,21 +1,22 @@
 import './App.css';
 import NavBar from './components/NavBar'
 import ItemListContainer from './containers/ItemListContainer';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import ItemDetail from './components/ItemDetail';
+
 import ItemDetailContainer from './containers/itemDetailContainer';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-      <>
-      <Container maxWidth="fixed">
-      <CssBaseline />
-        <NavBar/>
-        <ItemListContainer/>
-        <ItemDetailContainer/>
-        </Container>
-      </>
+    <BrowserRouter>
+      <NavBar/>
+        <Switch>
+            <Route exact path='/' children={ <ItemListContainer/> } />   
+            <Route exact path='/category' children={ <ItemDetailContainer/>}/>
+            <Route exact path='/category/:id'  children={<ItemDetailContainer/>}/>
+            <Route exact path='/item/:id' children={ <ItemDetailContainer/>}/>  
+            <Route path='*' children={<div>404</div>} />
+        </Switch>
+        </BrowserRouter>
   );
 }
 

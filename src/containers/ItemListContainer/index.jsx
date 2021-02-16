@@ -1,6 +1,4 @@
-import {Grid} from '@material-ui/core/';
 import { useEffect, useState } from 'react';
-// import ItemCount from '../../components/ItemCount';
 import './ItemListContainer.css'
 
 import productList from "../../productos/productList";
@@ -41,7 +39,7 @@ function ItemListContainer() {
      },[])                                                                          
     
     if(isLoading){
-        return <h2>Cargando datos...</h2>
+        return <h2 className='itemListContainer'>Cargando datos...</h2>
     }
 
     return (

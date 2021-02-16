@@ -1,5 +1,6 @@
 .itemCard{
-    border:2px solid;
+    border:1px solid;
     border-color: black;
-    width:10rem;
+    width:100%;
+    margin:1em;
 }

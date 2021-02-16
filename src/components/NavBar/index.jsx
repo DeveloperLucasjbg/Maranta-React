@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import CartWidget from '../CartWidget';
+import { Link } from 'react-router-dom';
+import './clase.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,28 +23,26 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar() {
   const classes = useStyles();
   return (
-    <>
+      
     <div className={classes.root}>
-      <AppBar position="static">
-        
+      <AppBar position="static">  
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
         
-          <Typography variant="h6" className={classes.title}> Farmacia Guidi</Typography>
-          <Typography variant="" className={classes.title}> DERMOCOSMETICA</Typography>
-          <Typography variant="" className={classes.title}> Productos</Typography>
-          <Typography variant="" className={classes.title}> Contacto</Typography>
-
-          <CartWidget />
-        </Toolbar>
+          <Typography variant="h6" className={classes.title}><Link E-Comerce /> </Typography>
+          <div className='clase'>
+            <Link to='/'>Home</Link>
+            <Link to='/'>Categorias</Link>
+            <Link to='/'>Obras Sociales</Link>
+            <Link to='/'>Producto</Link>
+            </div> 
         
-      </AppBar>
-      
-      
+          <CartWidget />
+        </Toolbar>     
+      </AppBar>   
     </div>
-    </>
-  
+   
   );
 }
