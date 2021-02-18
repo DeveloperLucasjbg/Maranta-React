@@ -1,11 +1,8 @@
 .countContainer{
     padding: 1em;
-    width: 18em;
     display: flex;
     flex-direction: column  ;
-    background-color: rgb(184, 179, 179);
     margin:1em;
-
     align-items: center;
 
 }
@@ -16,9 +13,8 @@ input{
 }
 .imagenDmentira{
     background-color: rgb(228, 245, 168);
-    height: 10em;
-    width: 18em;
-
+    height: 2em;
+    width: 7em;
     text-align: center;
 }
 .padd{

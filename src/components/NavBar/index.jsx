@@ -30,16 +30,18 @@ export default function ButtonAppBar() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-        
-          <Typography variant="h6" className={classes.title}><Link E-Comerce /> </Typography>
-          <div className='clase'>
+          
+          <Typography variant="h6" className={classes.title}><Link E-Comerce/> </Typography>
+
+            <div className='clase'>
             <Link to='/'>Home</Link>
             <Link to='/'>Categorias</Link>
-            <Link to='/'>Obras Sociales</Link>
-            <Link to='/'>Producto</Link>
+            <Link to='/'>Nosotros</Link>
+            <Link to='/'>Contacto</Link>
             </div> 
         
-          <CartWidget />
+            <CartWidget />
+
         </Toolbar>     
       </AppBar>   
     </div>

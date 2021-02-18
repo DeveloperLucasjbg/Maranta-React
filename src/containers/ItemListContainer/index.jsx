@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import './ItemListContainer.css'
+import './ItemListContainer.css';
 
-import productList from "../../productos/productList";
+import productos from '../../productos/productos.jsx';
 import ItemList from '../../components/ItemList';
 
 function ItemListContainer() {
@@ -30,7 +30,7 @@ function ItemListContainer() {
         setIsLoading(true)
         const myPromise = new Promise((resolve, reject) => {
             //set time out para emular coneccion base d datos
-            setTimeout(()=>{ resolve(productList)}, 1500);
+            setTimeout(()=>{ resolve(productos)}, 1500);
         });
         myPromise.then((result) => {
             setProducts(result);

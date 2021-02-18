@@ -1,8 +1,12 @@
 import Button from '@material-ui/core/Button';
 import './ItemCount.css';
 
-const ItemCount = ({stock , onAdd , onSubstrac, contador, comprado,toCart, clearCart}) =>{
-   
+const ItemCount = ({stock , onAdd , onSubstrac, contador , comprado ,toCart, clearCart}) =>{
+
+
+
+
+
 return(
     <div className="countContainer">
         <div className="imagenDmentira">
