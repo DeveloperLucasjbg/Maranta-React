@@ -2,13 +2,13 @@ import Button from '@material-ui/core/Button';
 import './ItemCount.css';
 import React, { useState, useEffect } from 'react';
 
-const ItemCount = () =>{
-
-let stock = 10;
+const ItemCount = ({stock, setItemAmount, setSeleccionado}) =>{
 
 const [comprado, setComprado] = useState(0);
 const [contador, setContador] = useState(0)
 
+
+setItemAmount(comprado)
 
 const sumar = () =>{
     setContador(contador + 1)
@@ -18,13 +18,15 @@ const restar = () =>{
 }
 const toCart = () =>{
     setComprado(contador)
+    setSeleccionado(true)
     setContador(0)
 }
 const clearCart = () =>{
     setComprado(0)
     setContador(0)
-}
+    setSeleccionado(false)
 
+}
 
 return(
     <div className="countContainer">

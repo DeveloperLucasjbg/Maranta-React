@@ -6,10 +6,11 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function ItemDetailContainer() {
-  
+
     const {id} = useParams();
     const [productoDetalle, setProductoDetalle] = useState([]);
     
+
     useEffect(()=>{
         const myPromise = new Promise((resolve, reject) => {
             setTimeout(()=>{ resolve(productos)}, 1100);
@@ -24,7 +25,7 @@ function ItemDetailContainer() {
     
     return (
         <>         
-        <ItemDetail id={id} productoDetalle={productoDetalle}/>
+        <ItemDetail id={id} productoDetalle={productoDetalle} />
         </>
     )
 }

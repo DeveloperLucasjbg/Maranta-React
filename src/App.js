@@ -14,7 +14,9 @@ function App() {
             <Route exact path='/category' children={ <ItemDetailContainer/>}/>
             <Route exact path='/category/:id'  children={<ItemDetailContainer/>}/>
             <Route exact path='/item/:id' children={ <ItemDetailContainer/>}/>  
+            <Route exact path='/cart' children={<div style={{fontSize:'8vh'}}>CARRITO</div>} />
             <Route path='*' children={<div>404</div>} />
+
         </Switch>
         </BrowserRouter>
   );
