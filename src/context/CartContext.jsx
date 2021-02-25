@@ -6,7 +6,7 @@ console.log(cartContext)
 
 
 
-const CartContext = (children) => {
+const CartContext = ({children}) => {
 
     return(
         <cartContext.Provider value={'value'}>
