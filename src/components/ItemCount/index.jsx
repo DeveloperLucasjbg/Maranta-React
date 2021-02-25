@@ -29,22 +29,18 @@ const clearCart = () =>{
 }
 
 return(
-    <div className="countContainer">
-        <div className="imagenDmentira">
-            <p>{comprado}</p>
-        </div>
-        <div className="padd">
+    <div className="countContainer">    
             {(contador > 0 ? 
             <Button onClick ={restar} className="button" variant="outlined"color="primary">-</Button> 
             : <Button className="button" variant="outlined"color="">-</Button> 
             )}
+
             <input type="text" value={contador}/>
 
              {(contador < stock ?             
             <Button onClick ={sumar} className="button" variant="outlined"color="primary">+</Button>
             : <Button  className="button" color="primary">+</Button>
             )}
-        </div>  
         <Button onClick={toCart} className="" variant="outlined"color="primary">Agregar al carro</Button>
         <Button onClick={clearCart} className="" variant="outlined"color="secondary">Vaciar carro</Button>
     </div>

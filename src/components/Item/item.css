@@ -1,6 +1,10 @@
 .itemCard{
-    border:1px solid;
-    border-color: black;
+    border:0.5px solid;
+    border-color:grey;
     width:100%;
     margin:1em;
+}
+.itemCard a{
+    text-decoration: none;
+
 }

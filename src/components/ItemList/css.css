@@ -1,7 +1,5 @@
-.grid{
-    background-color: rgb(182, 202, 238, 0.5);
+.grid{ 
     display: grid;
-    grid-template-columns: repeat(6,1fr) ;
-    margin:1em;
+    grid-template-columns: repeat(4,1fr) ;
    
 }

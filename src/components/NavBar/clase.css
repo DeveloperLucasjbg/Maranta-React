@@ -1,8 +1,7 @@
-.clase{
+.clase a{
     margin-left: 4em;
     margin-right:4em;
-}
-a{
+    color: white;
     text-decoration: none;
-    margin-left: 4em;
 }
+

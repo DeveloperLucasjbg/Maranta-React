@@ -1,11 +1,12 @@
 .detail{
-    margin-top: 1em;
-    padding: 2em;
-    text-align: center;
-    justify-content: center;
-    border-radius:3%;
-    border: black;
-    background-color: rgb(184, 210, 237);
     width:100%;
-    padding:1em;
+    padding:1em 5rem 0 5rem;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+}
+.title{
+    font-size: 6vh !important;
+}
+.hide{
+    visibility: hidden;
 }

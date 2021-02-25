@@ -31,17 +31,16 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           
-          <Typography variant="h6" className={classes.title}><Link E-Comerce/> </Typography>
+          <Typography variant="h6" className={classes.title}>E-Comerce</Typography>
 
             <div className='clase'>
             <Link to='/'>Home</Link>
-            <Link to='/'>Categorias</Link>
-            <Link to='/'>Nosotros</Link>
-            <Link to='/'>Contacto</Link>
+            <Link to='/category'>Categorias</Link>
+            <Link to='/we'>Nosotros</Link>
+            <Link to='/contact'>Contacto</Link>
             </div> 
         
             <CartWidget />
-
         </Toolbar>     
       </AppBar>   
     </div>
