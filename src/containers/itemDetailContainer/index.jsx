@@ -13,7 +13,7 @@ function ItemDetailContainer() {
 
     useEffect(()=>{
         const myPromise = new Promise((resolve, reject) => {
-            setTimeout(()=>{ resolve(productos)}, 1100);
+            setTimeout(()=>{ resolve(productos)},5);
         });
         myPromise.then((result) => {
             const toRender = result.find((result) =>{
