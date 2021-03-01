@@ -10,10 +10,9 @@ const ItemDetail = ({ productoDetalle }) => {
   const [seleccionado, setSeleccionado] = useState(false);
 
   const { addCart } = useContext(CartContext);
+  
   useEffect(() => {
-    let id = productoDetalle.id;
-    let cant = itemAmount;
-    addCart(id, cant);
+    addCart(productoDetalle.id, itemAmount);
   }, [itemAmount]);
   return (
     <Typography>
@@ -30,7 +29,6 @@ const ItemDetail = ({ productoDetalle }) => {
           <h4>En stock: {productoDetalle.stock}</h4>
 
           <h4> en Carro :{itemAmount}</h4>
-
           {seleccionado ? (
             <ItemCount
               className="hide"

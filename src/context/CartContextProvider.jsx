@@ -3,24 +3,27 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
+
   const [products, setProducts] = useState([]);
+  
   const isIdIn = (id) => products.some((prod) => prod.id === id);
 
   const addCart = (id, cant) => {
     if (isIdIn(id)) {
-      let newProducts = products.map((e) =>
+      let newProducts = products.filter((e) =>
         e.id === id ? { ...e, cant: e.cant + cant } : e
       );
       setProducts(newProducts);
     } else {
-      setProducts([...products, {
-        id: id,
-        cant: cant,
-      }]);
+      setProducts([
+        ...products,
+        {
+          id: id,
+          cant: cant,
+        },
+      ]);
     }
-    console.log(products)
   };
-  // setProduct([...[item]])
   return (
     <CartContext.Provider
       value={{
@@ -34,3 +37,4 @@ const CartContextProvider = ({ children }) => {
 };
 
 export default CartContextProvider;
+ // setProduct([...[item]])
