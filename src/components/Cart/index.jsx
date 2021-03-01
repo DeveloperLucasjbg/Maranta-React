@@ -1,11 +1,13 @@
+  
 import { useContext } from "react";
 import {CartContext}  from '../../context/CartContextProvider'
 
 const Cart = () => {
 
     const {product} = useContext(CartContext);
+    console.log(product)
     var name = product.item;
-    var cant = product.cant
+    var cant = product.cant;
     return (
         <>
             <h1>CARRITO</h1>

@@ -12,6 +12,7 @@ function App() {
       <CartContext>
         <NavBar />
         <Switch>
+          
           <Route exact path="/" children={<ItemListContainer />} />
           <Route exact path="/category" children={<ItemDetailContainer />} />
           <Route

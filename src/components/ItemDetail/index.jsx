@@ -1,29 +1,21 @@
 import "./itemDetail.css";
-import React, { useState , useEffect , useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ItemCount from "../ItemCount";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import {CartContext}  from '../../context/CartContextProvider'
-
-
-// import { useState } from "react";
-
+import { CartContext } from "../../context/CartContextProvider";
 
 const ItemDetail = ({ productoDetalle }) => {
- 
   const [itemAmount, setItemAmount] = useState(0);
   const [seleccionado, setSeleccionado] = useState(false);
 
-  const {product, setProduct} = useContext(CartContext);
+  const { addCart } = useContext(CartContext);
 
-useEffect(() => {
-  setProduct({item: productoDetalle.name , cant: itemAmount })
-}, [itemAmount])
-
-console.log(product)
-
-
-  return ( 
+  useEffect(() => {
+    addCart({ item:productoDetalle.name, cant: itemAmount });
+  }, [itemAmount]);
+  
+  return (
     <Typography>
       <div className="detail">
         <img
