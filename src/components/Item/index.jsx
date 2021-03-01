@@ -1,6 +1,4 @@
-import "./item.css";
 import { Link } from "react-router-dom";
-
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -37,7 +35,7 @@ const Item = ({ product }) => {
       <CardHeader
         action={
           <IconButton aria-label="settings">
-           <FavoriteIcon />
+            <FavoriteIcon />
           </IconButton>
         }
         title={product.name}
@@ -56,9 +54,7 @@ const Item = ({ product }) => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="share">
-         ${product.price}
-        </IconButton>
+        <IconButton aria-label="share">${product.price}</IconButton>
         <IconButton
           className={clsx(classes.expand)}
           onClick={""}
@@ -68,7 +64,7 @@ const Item = ({ product }) => {
             <IconButton component={AddCircleOutlineOutlinedIcon} />
           </Link>
         </IconButton>
-      </CardActions>    
+      </CardActions>
     </Card>
   );
 };
