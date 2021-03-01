@@ -3,26 +3,28 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
-  const [product, setProduct] = useState([]);
-  
+  const [products, setProducts] = useState([]);
+  const isIdIn = (id) => products.some((prod) => prod.id === id);
 
-  const addCart = (item) =>{
-    setProduct(item);
-    // if (isIdIn(item.item.id) === -1){
-    //   setProduct([...[item]])
-    // }else{
-    //   }  
-    // }
-  }
-  // const isIdIn = (id) => {
-  //   return product.findIndex(prod => prod.id === id)
-  // }
-
-
+  const addCart = (id, cant) => {
+    if (isIdIn(id)) {
+      let newProducts = products.map((e) =>
+        e.id === id ? { ...e, cant: e.cant + cant } : e
+      );
+      setProducts(newProducts);
+    } else {
+      setProducts([...products, {
+        id: id,
+        cant: cant,
+      }]);
+    }
+    console.log(products)
+  };
+  // setProduct([...[item]])
   return (
     <CartContext.Provider
       value={{
-        product,
+        products,
         addCart,
       }}
     >
