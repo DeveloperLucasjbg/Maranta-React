@@ -9,9 +9,9 @@ const Cart = () => {
 
     console.log(products)
 
-    let productToRender = productos.filter(e => e.id === products.id);
+    let productsToRender = productos.filter(e => e.id === products.id);
 
-    console.log(productToRender)
+    console.log(productsToRender)
   
     
   return (
