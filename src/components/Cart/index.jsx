@@ -1,17 +1,18 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
 
+import productos from '../../productos/productos.jsx';
+
+
 const Cart = () => {
   const { products } = useContext(CartContext);
   console.log(products)
-  // var name = products.item;
- 
+      let productToRender = productos.filter((e) => (e.id === products.id));   
+      console.log(productToRender)
+    
+
   return (
-    <>
-      <h1>CARRITO</h1>
-      {/* <h2>{name}</h2> */}
-      <h2>{products.cant}</h2>
-    </>
-  );
-};
+          <></>
+        )   
+  }
 export default Cart;
