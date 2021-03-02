@@ -1,0 +1,23 @@
+.cartItemContainer {
+  display: flex;
+  width: 50vh;
+  margin-top: 3px;
+  background-color: rgb(233, 233, 233);
+  justify-content: space-around;
+  text-align: center;
+  text-justify: center;
+}
+.cartItemContainer img {
+  margin: 1em;
+  max-width: 9vh;
+  height: 7vh;
+  object-fit: cover;
+  border-radius: 100%;
+}
+h3 {
+  align-self: center;
+}
+button{
+    align-self: center;
+    height: min-content;
+}

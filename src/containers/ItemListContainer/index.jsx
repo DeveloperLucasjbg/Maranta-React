@@ -5,10 +5,10 @@ import ItemList from "../../components/ItemList";
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+//   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
     const myPromise = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(productos);
@@ -16,13 +16,13 @@ function ItemListContainer() {
     });
     myPromise.then((result) => {
       setProducts(result);
-      setIsLoading(false);
+    //   setIsLoading(false);
     });
   }, []);
 
-  if (isLoading) {
-    return <h2 className="itemListContainer">Cargando datos...</h2>;
-  }
+//   if (isLoading) {
+//     return <h2 className="itemListContainer">Cargando datos...</h2>;
+//   }
 
   return (
     <div className="container">

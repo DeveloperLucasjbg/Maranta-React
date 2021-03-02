@@ -13,7 +13,7 @@ function ItemDetailContainer() {
 
     useEffect(()=>{
         const myPromise = new Promise((resolve, reject) => {
-            setTimeout(()=>{ resolve(productos)},5);
+            setTimeout(()=>{ resolve(productos)},2);
         });
         myPromise.then((result) => {
             const toRender = result.find((result) =>{
@@ -25,7 +25,7 @@ function ItemDetailContainer() {
     
     return (
         <>         
-        <ItemDetail id={id} productoDetalle={productoDetalle} />
+        <ItemDetail productoDetalle={productoDetalle} />
         </>
     )
 }

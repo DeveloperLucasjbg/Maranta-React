@@ -6,11 +6,14 @@ import Typography from "@material-ui/core/Typography";
 import { CartContext } from "../../context/CartContextProvider";
 
 const ItemDetail = ({ productoDetalle }) => {
+  const { addCart } = useContext(CartContext);
   const [itemAmount, setItemAmount] = useState(0);
   const [seleccionado, setSeleccionado] = useState(false);
 
-  const { addCart } = useContext(CartContext);
-  
+  const handlerItemAmount = (i) => {
+    return setItemAmount(i);
+  };
+
   useEffect(() => {
     addCart(productoDetalle.id, itemAmount);
   }, [itemAmount]);
@@ -27,18 +30,16 @@ const ItemDetail = ({ productoDetalle }) => {
           <h4>ID:{productoDetalle.id}</h4>
           <h4>$ {productoDetalle.price}</h4>
           <h4>En stock: {productoDetalle.stock}</h4>
-
-          <h4> en Carro :{itemAmount}</h4>
           {seleccionado ? (
             <ItemCount
               className="hide"
-              setItemAmount={setItemAmount}
+              handlerItemAmount={handlerItemAmount}
               setSeleccionado={setSeleccionado}
               stock={productoDetalle.stock}
             />
           ) : (
             <ItemCount
-              setItemAmount={setItemAmount}
+              handlerItemAmount={handlerItemAmount}
               setSeleccionado={setSeleccionado}
               stock={productoDetalle.stock}
             />

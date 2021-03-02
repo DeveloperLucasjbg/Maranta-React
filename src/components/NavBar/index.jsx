@@ -7,6 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CartWidget from '../CartWidget';
 import { Link } from 'react-router-dom';
 import './clase.css'
+import { React } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+const ButtonAppBar = () => {
   const classes = useStyles();
   return (
       
@@ -39,11 +40,11 @@ export default function ButtonAppBar() {
             <Link to='/we'>Nosotros</Link>
             <Link to='/contact'>Contacto</Link>
             </div> 
-        
-            <CartWidget />
+            <Link style={{textDecoration:'none'}} to='/cart'><CartWidget/></Link>
         </Toolbar>     
       </AppBar>   
     </div>
    
   );
 }
+export default ButtonAppBar;

@@ -2,11 +2,11 @@ import Button from "@material-ui/core/Button";
 import "./ItemCount.css";
 import React, { useState } from "react";
 
-const ItemCount = ({ stock, setItemAmount, setSeleccionado }) => {
+const ItemCount = ({ stock, handlerItemAmount, setSeleccionado }) => {
   const [comprado, setComprado] = useState(0);
   const [contador, setContador] = useState(0);
 
-  setItemAmount(comprado);
+  handlerItemAmount(comprado);
 
   const sumar = () => {
     setContador(contador + 1);

@@ -5,6 +5,7 @@ export const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
 
   const [products, setProducts] = useState([]);
+  console.log(products)
   const [totalAmount, setTotalAmunt] = useState(0);
   
   const isIdIn = (id) => products.some((prod) => prod.id === id);
@@ -13,8 +14,8 @@ const CartContextProvider = ({ children }) => {
     if (isIdIn(id)) {
       let newProducts = products.filter((e) =>
         e.id === id ? { ...e, cant: e.cant + cant } : e
-      );
-      setProducts(newProducts);
+        );
+        setProducts(newProducts);
     } else {
       setProducts([
         ...products,
@@ -25,9 +26,10 @@ const CartContextProvider = ({ children }) => {
       ]);
     }
   };
+  console.log(products)
   useEffect(() => {
     setTotalAmunt(products.length)
-  }, [products])    
+  }, [products.length])    
 
 
   return (
