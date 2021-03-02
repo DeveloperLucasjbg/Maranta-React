@@ -27,8 +27,7 @@ const CartContextProvider = ({ children }) => {
   };
   useEffect(() => {
     setTotalAmunt(products.length)
-    
-  }, [products])
+  }, [products])    
 
 
   return (
