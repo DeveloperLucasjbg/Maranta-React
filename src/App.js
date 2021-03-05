@@ -4,15 +4,17 @@ import ItemListContainer from "./containers/ItemListContainer";
 import ItemDetailContainer from "./containers/itemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CartContext from "./context/CartContextProvider";
+import DataBaseContext from "./context/DataBaseContextProvider";
+
 import Cart from "./components/Cart/";
 
 function App() {
   return (
     <BrowserRouter>
+    <DataBaseContext></DataBaseContext>
       <CartContext>
         <NavBar />
         <Switch>
-          
           <Route exact path="/" children={<ItemListContainer />} />
           <Route exact path="/category" children={<ItemDetailContainer />} />
           <Route
