@@ -1,26 +1,19 @@
 import ItemDetail from "../../components/ItemDetail";
-import productos from "../../productos/productos.jsx";
 import { useParams } from 'react-router-dom';
-
-
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { DataBaseContext } from '../../context/DataBaseContextProvider';
 
 function ItemDetailContainer() {
 
     const {id} = useParams();
+    const { products } = useContext(DataBaseContext);
     const [productoDetalle, setProductoDetalle] = useState([]);
-    
 
     useEffect(()=>{
-        const myPromise = new Promise((resolve, reject) => {
-            setTimeout(()=>{ resolve(productos)},2);
-        });
-        myPromise.then((result) => {
-            const toRender = result.find((result) =>{
-                return result.name === id;      
+            let toRender = products.find((products) =>{
+                return products.name === id;      
             })
             setProductoDetalle(toRender)
-        });
      },[])                                                                             
     
     return (

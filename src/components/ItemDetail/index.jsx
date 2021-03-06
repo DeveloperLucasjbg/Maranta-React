@@ -13,21 +13,21 @@ const ItemDetail = ({ productoDetalle }) => {
   const handlerItemAmount = (i) => {
     return setItemAmount(i);
   };
-
+  console.log(itemAmount)
   useEffect(() => {
-    addCart(productoDetalle.id, itemAmount);
-  }, [itemAmount]);
+    addCart(productoDetalle.categoryID, itemAmount);
+  }, []);
+  console.log(itemAmount)
   return (
     <Typography>
       <div className="detail">
         <img
-          src={`/img/${productoDetalle.url}`}
+          src={productoDetalle.img_path}
           alt={productoDetalle.name}
-          width="500"
+          width="490"
         />
         <div>
           <h2 className="title">{productoDetalle.name}</h2>
-          <h4>ID:{productoDetalle.id}</h4>
           <h4>$ {productoDetalle.price}</h4>
           <h4>En stock: {productoDetalle.stock}</h4>
           {seleccionado ? (
@@ -50,7 +50,6 @@ const ItemDetail = ({ productoDetalle }) => {
             </Link>
           ) : (
             <p to="/cart" className="hide">
-              Finalizar Compra
             </p>
           )}
         </div>

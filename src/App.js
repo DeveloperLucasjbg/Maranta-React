@@ -11,22 +11,23 @@ import Cart from "./components/Cart/";
 function App() {
   return (
     <BrowserRouter>
-    <DataBaseContext></DataBaseContext>
-      <CartContext>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" children={<ItemListContainer />} />
-          <Route exact path="/category" children={<ItemDetailContainer />} />
-          <Route
-            exact
-            path="/category/:id"
-            children={<ItemDetailContainer />}
-          />
-          <Route exact path="/item/:id" children={<ItemDetailContainer />} />
-          <Route exact path="/cart" children={<Cart />} />
-          <Route path="*" children={<div>404</div>} />
-        </Switch>
-      </CartContext>
+      <DataBaseContext>
+        <CartContext>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" children={<ItemListContainer />} />
+            <Route exact path="/category"/>
+            <Route
+              exact
+              path="/category/:id"
+              children={<ItemDetailContainer />}
+            />
+            <Route exact path="/item/:id" children={<ItemDetailContainer />} />
+            <Route exact path="/cart" children={<Cart />} />
+            <Route path="*" children={<div>404</div>} />
+          </Switch>
+        </CartContext>
+      </DataBaseContext>
     </BrowserRouter>
   );
 }

@@ -43,7 +43,7 @@ const Item = ({ product }) => {
       />
       <CardMedia
         className={classes.media}
-        image={`/img/${product.url}`}
+        image={product.img_path}
         title="Paella dish"
       />
       <CardContent>

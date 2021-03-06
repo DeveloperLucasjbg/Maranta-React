@@ -10,7 +10,8 @@ const DataBaseProvider = ({ children }) => {
     const db = getFirestore();
     const productsColection = db.collection("PRODUCTOS");
     productsColection.get().then((value) => {
-     value.docs.map(element => {setProducts(element.data())})
+      let dbCatcher = value.docs.map(element => element.data());
+      setProducts( dbCatcher );
     });
   }, []);
   return (
@@ -24,4 +25,3 @@ const DataBaseProvider = ({ children }) => {
   );
 };
 export default DataBaseProvider;
-// setProduct([...[item]])
