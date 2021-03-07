@@ -1,0 +1,17 @@
+.hidden{
+    visibility: hidden;
+}
+.itemInWidgetContainer{
+
+    position:fixed;
+    right: 0;
+    z-index: 1;
+    width: fit-content;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: indianred;
+ }
+h3{
+    margin-left: 1em;
+}
+

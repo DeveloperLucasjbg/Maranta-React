@@ -1,18 +1,17 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import { DataBaseContext } from "../context/DataBaseContextProvider";
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
+  
+  const [trigger, setTrigger] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [totalAmount, setTotalAmunt] = useState(0);
 
   const isIdIn = (id) => cartProducts.some((prod) => prod.categoryID === id);
 
   const addCart = (id, cant) => {
-    if (isIdIn(id)) {
-      let newProducts = cartProducts.map((e) =>
-        e.categoryID === id ? { ...e, cant: e.cant + cant } : e
-      );
+      if (isIdIn(id)) {
+      let newProducts = cartProducts.map(e => e.id === id ? { ...e, cant: e.cant + cant } : e);
       setCartProducts(newProducts);
     } else {
       setCartProducts([
@@ -24,10 +23,11 @@ const CartContextProvider = ({ children }) => {
       ]);
     }
   };
-  const removeItem = (id) => {
-    let newProducts = cartProducts.map((e) => e.categoryID !== id);
-      setCartProducts(newProducts);
-  }
+  
+  // const removeItem = (id) => {
+  //   let newProducts = cartProducts.map((e) => e.categoryID !== id);
+  //     setCartProducts(newProducts);
+  // }
 
   useEffect(() => {
     setTotalAmunt(cartProducts.length);
@@ -40,6 +40,8 @@ const CartContextProvider = ({ children }) => {
         addCart,
         totalAmount,
         // removeItem,
+        setTrigger,//para cartInWidget
+        trigger
       }}
     >
       {children}

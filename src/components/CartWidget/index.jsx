@@ -6,18 +6,16 @@ import { CartContext } from "../../context/CartContextProvider";
 import { useContext } from "react";
 
 
-
 const CartWidget = () => {
-  const { totalAmount } = useContext(CartContext);
-
-    return (
+  const { totalAmount, setTrigger,trigger } = useContext(CartContext);
+  const handdlerTriger = () =>{ setTrigger(!trigger)}
+ return (
         <>
-        <Button>
+        <Button onClick={handdlerTriger}>
           <ShoppingCartIcon style={{ color:grey[50]}}/> 
           <p style={{color:grey[50], marginLeft:'1em'}}>{totalAmount}</p>           
         </Button>
         </>
     )
 }
-
 export default CartWidget

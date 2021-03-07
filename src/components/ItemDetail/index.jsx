@@ -9,15 +9,18 @@ const ItemDetail = ({ productoDetalle }) => {
   const { addCart } = useContext(CartContext);
   const [itemAmount, setItemAmount] = useState(0);
   const [seleccionado, setSeleccionado] = useState(false);
-
+  
   const handlerItemAmount = (i) => {
     return setItemAmount(i);
   };
-  console.log(itemAmount)
-  useEffect(() => {
-    addCart(productoDetalle.categoryID, itemAmount);
-  }, []);
-  console.log(itemAmount)
+
+  // let id = productoDetalle.categoryID;
+  // let cant = itemAmount;
+  // addCart(id, cant)
+
+  // handlerAddCart(idToGo, cant);
+
+
   return (
     <Typography>
       <div className="detail">
@@ -49,8 +52,7 @@ const ItemDetail = ({ productoDetalle }) => {
               Finalizar Compra
             </Link>
           ) : (
-            <p to="/cart" className="hide">
-            </p>
+            <p to="/cart" className="hide"></p>
           )}
         </div>
       </div>

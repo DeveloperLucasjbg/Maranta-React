@@ -40,7 +40,7 @@ const ButtonAppBar = () => {
             <Link to='/we'>Nosotros</Link>
             <Link to='/contact'>Contacto</Link>
             </div> 
-            <Link style={{textDecoration:'none'}} to='/cart'><CartWidget/></Link>
+            <p  style={{textDecoration:'none'},{margin:0}}><CartWidget/></p>
         </Toolbar>     
       </AppBar>   
     </div>
