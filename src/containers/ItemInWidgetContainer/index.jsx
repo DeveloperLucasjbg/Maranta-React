@@ -14,12 +14,12 @@ const ItemInWidgetContainer = () => {
 
        
         <div className= {`itemInWidgetContainer ${triggerClass}`}>
-            {/* {
+            {
                cartProducts.map(e => {
-                    return <ItemInWidget key={e.categoryID} cartProducts={cartProducts}/>;
+                    return <ItemInWidget key={e.categoryID} cartProducts={cartProducts}/>
                   })
-            } */}
-            <ItemInWidget />;
+            }
+            <ItemInWidget />
         </div>
     )
 }

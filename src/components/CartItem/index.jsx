@@ -1,19 +1,18 @@
 import "./cartItemContainer.css";
-import { CartContext } from '../../context/CartContextProvider'
+import { CartContext } from "../../context/CartContextProvider";
 import { useContext } from "react";
 
-
-
-const CartItem = ({ product }) => {
-  // const { removeItem } = useContext(CartContext);
-
+const CartItem = ({ id }) => {
+  const { cartProducts } = useContext(CartContext);
+  var product = cartProducts.filter(e => e.categoryID === id)
+console.log(product)
   return (
     <div className="cartItemContainer">
-      <h3>{product.cant}</h3>
+      <h3>{product.quantity}</h3>
       <img src={product.img_path} alt={product.name} />
       <h3>{product.name}</h3>
       <h3>$ {product.price}</h3>
-      {/* <button onClick={removeItem(product.id)}>X</button> */}
+      <h3> {product.quantity}</h3> 
     </div>
   );
 };

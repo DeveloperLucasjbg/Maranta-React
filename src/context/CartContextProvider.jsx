@@ -10,7 +10,7 @@ const CartContextProvider = ({ children }) => {
 
   const addCart = (item, quantiy) => {
     if (isIdIn(item.categoryID)) {
-      let newProducts = cartProducts.map((e) =>
+      let newProducts = cartProducts.map(e =>
         e.categoryID === item.categoryID
           ? { ...e, quantiy: e.quantiy + quantiy }
           : e
