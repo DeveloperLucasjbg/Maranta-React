@@ -3,26 +3,12 @@ import React, { useState, useEffect, useContext } from "react";
 import ItemCount from "../ItemCount";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import { CartContext } from "../../context/CartContextProvider";
 
 const ItemDetail = ({ productoDetalle }) => {
-  const { addCart } = useContext(CartContext);
-  const [itemAmount, setItemAmount] = useState(0);
   const [seleccionado, setSeleccionado] = useState(false);
-  
-  const handlerItemAmount = (i) => {
-    return setItemAmount(i);
-  };
-
-  // let id = productoDetalle.categoryID;
-  // let cant = itemAmount;
-  // addCart(id, cant)
-
-  // handlerAddCart(idToGo, cant);
-
 
   return (
-    <Typography>
+    <Typography key={productoDetalle.categoryID}>
       <div className="detail">
         <img
           src={productoDetalle.img_path}
@@ -36,13 +22,13 @@ const ItemDetail = ({ productoDetalle }) => {
           {seleccionado ? (
             <ItemCount
               className="hide"
-              handlerItemAmount={handlerItemAmount}
+              productoDetalle={productoDetalle}
               setSeleccionado={setSeleccionado}
               stock={productoDetalle.stock}
             />
           ) : (
             <ItemCount
-              handlerItemAmount={handlerItemAmount}
+              productoDetalle={productoDetalle}
               setSeleccionado={setSeleccionado}
               stock={productoDetalle.stock}
             />

@@ -1,29 +1,32 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
-  
   const [trigger, setTrigger] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [totalAmount, setTotalAmunt] = useState(0);
 
   const isIdIn = (id) => cartProducts.some((prod) => prod.categoryID === id);
 
-  const addCart = (id, cant) => {
-      if (isIdIn(id)) {
-      let newProducts = cartProducts.map(e => e.id === id ? { ...e, cant: e.cant + cant } : e);
+  const addCart = (item, quantiy) => {
+    if (isIdIn(item.categoryID)) {
+      let newProducts = cartProducts.map((e) =>
+        e.categoryID === item.categoryID
+          ? { ...e, quantiy: e.quantiy + quantiy }
+          : e
+      );
       setCartProducts(newProducts);
     } else {
       setCartProducts([
         ...cartProducts,
         {
-          categoryID: id,
-          cant: cant,
+          categoryID: item,
+          quantiy: quantiy,
         },
       ]);
     }
   };
-  
+
   // const removeItem = (id) => {
   //   let newProducts = cartProducts.map((e) => e.categoryID !== id);
   //     setCartProducts(newProducts);
@@ -40,8 +43,8 @@ const CartContextProvider = ({ children }) => {
         addCart,
         totalAmount,
         // removeItem,
-        setTrigger,//para cartInWidget
-        trigger
+        setTrigger, //para cartInWidget
+        trigger,
       }}
     >
       {children}
