@@ -6,9 +6,8 @@ import Typography from "@material-ui/core/Typography";
 
 const ItemDetail = ({ productoDetalle }) => {
   const [seleccionado, setSeleccionado] = useState(false);
-
   return (
-    <Typography key={productoDetalle.categoryID}>
+    <Typography >
       <div className="detail">
         <img
           src={productoDetalle.img_path}
