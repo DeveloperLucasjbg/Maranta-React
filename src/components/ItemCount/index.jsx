@@ -1,15 +1,14 @@
 import Button from "@material-ui/core/Button";
 import "./ItemCount.css";
-import React, { useState, useContext } from "react";
-import { CartContext } from '../../context/CartContextProvider'
-
+import React, { useState, useContext, useEffect } from "react";
+import { CartContext } from "../../context/CartContextProvider";
 
 const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
   const [contador, setContador] = useState(0);
   const [acumulador, setAcumulador] = useState(0);
-  const [comprado, setComprado] = useState({});
   const { addCart } = useContext(CartContext);
-
+  
+  
   
   const sumar = () => {
     setContador(contador + 1);
@@ -20,26 +19,25 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
   const acumular = () => {
     setAcumulador(acumulador + contador);
   };
-  const toCart = (x) => {
-    acumular();
-    setContador(0);
-    setSeleccionado(true);
-    setComprado(addCart({item : x , quantiy : acumulador }));
-    };
   const clearCart = () => {
     setSeleccionado(false);
     setContador(0);
     setAcumulador(0);
-    setComprado(0);
   };
-  
+  const goCart = (x,y) => {   
+    acumular();
+    setContador(0);
+    setSeleccionado(true);
+    addCart(x , y );
+  }; 
+
   return (
     <div className="countContainer">
       {contador > 0 ? (
         <Button
         onClick={restar}
-        className="button"
-        variant="outlined"
+          className="button"
+          variant="outlined"
           color="primary"
         >
           -
@@ -66,7 +64,7 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
           +
         </Button>
       )}
-      <Button onClick={() =>  toCart(productoDetalle)} className="" variant="outlined" color="primary">
+      <Button onClick={() => goCart(productoDetalle.id, acumulador)} variant="outlined" color="primary">
         Agregar al carro
       </Button>
       <Button
