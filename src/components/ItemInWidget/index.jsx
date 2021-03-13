@@ -1,19 +1,21 @@
 import "./itemInWidget.css";
-import { DataBaseContext } from "../../context/DataBaseContextProvider";
 import { useContext } from "react";
+import { DataBaseContext } from '../../context/DataBaseContextProvider';
 
-const ItemInWidget = (cartProducts) => {
+const ItemInWidget = ({product, quantity}) => {
+    const { products } = useContext(DataBaseContext)
+    let itemTorender = products.find((e) =>{
+        return e.id === product
+        })
 
-  console.log(cartProducts)
-  
   return (
-    <div className="itemInWidget">
-      <h3>cartProducts.im</h3>
-      <h3>{cartProducts.name}</h3>
-      <h3>precio</h3>
-      <h3>cant</h3>
-      <h3>X</h3>
+    <div className='itemInWidget'>
+      <h4>{quantity}</h4>
+      <img className='imgInWidget' src={itemTorender.img_path} alt={itemTorender.name}/>
+      <h4>{itemTorender.name}</h4>
+      <h4>{itemTorender.price}</h4>
+      <h4>totalXproduct</h4>
     </div>
-  )
+  );
 };
 export default ItemInWidget;

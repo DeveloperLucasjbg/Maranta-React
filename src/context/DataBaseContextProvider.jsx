@@ -10,8 +10,11 @@ const DataBaseProvider = ({ children }) => {
     const db = getFirestore();
     const productsColection = db.collection("PRODUCTOS");
     productsColection.get().then((value) => {
-      let dbCatcher = value.docs.map(element => element.data());
-      setProducts( dbCatcher );
+      let dbCatcher = value.docs.map((element) => ({
+        id: element.id,
+        ...element.data(),
+      }));
+      setProducts( dbCatcher );                                     
     });
   }, []);
   return (

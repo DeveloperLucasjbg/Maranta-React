@@ -4,7 +4,7 @@ const ItemList = ({ products }) => {
   return (
     <div className="grid">
       {products.map(products => {
-        return <Item key={products.categoryID} product={products} />;
+        return <Item key={products.id} product={products} />;
       })}
     </div>
   );

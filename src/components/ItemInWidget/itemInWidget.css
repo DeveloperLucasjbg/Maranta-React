@@ -1,6 +1,16 @@
-.itemInWidget{
-    display:flex;
- }
-h3{
-    margin-left: 1em;
+.itemInWidget {
+  display: flex;
+}
+.imgInWidget {
+  margin: auto;
+  width: 3em;
+  height: 3em;
+  border-radius:220%;
+  object-fit: cover;
+}
+h3 {
+  margin-left: 1em;
+}
+button{
+  margin:1em;
 }

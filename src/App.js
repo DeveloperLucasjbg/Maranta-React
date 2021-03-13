@@ -5,7 +5,7 @@ import ItemDetailContainer from "./containers/itemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CartContext from "./context/CartContextProvider";
 import DataBaseContext from "./context/DataBaseContextProvider";
-import Cart from "./components/Cart/";
+import CartContainer from "./containers/CartContainer";
 import ItemInWidgetContainer from "./containers/ItemInWidgetContainer";
 
   
@@ -25,7 +25,7 @@ function App() {
               children={<ItemDetailContainer />}
             />
             <Route exact path="/item/:id" children={<ItemDetailContainer />} />
-            <Route exact path="/cart" children={<Cart />} />
+            <Route exact path="/cart" children={<CartContainer />} />
             <Route path="*" children={<div>404</div>} />
           </Switch>
         </CartContext>

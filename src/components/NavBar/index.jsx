@@ -26,13 +26,13 @@ const ButtonAppBar = () => {
   return (
       
     <div className={classes.root}>
-      <AppBar position="static">  
+      <AppBar position="static" color='secondary'>  
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
           
-          <Typography variant="h6" className={classes.title}>E-Comerce</Typography>
+          <Typography variant="h6" className={classes.title}>Maranta</Typography>
 
             <div className='clase'>
             <Link to='/'>Home</Link>

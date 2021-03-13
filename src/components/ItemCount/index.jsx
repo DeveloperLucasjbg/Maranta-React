@@ -1,6 +1,6 @@
 import Button from "@material-ui/core/Button";
 import "./ItemCount.css";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
 
 const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
@@ -16,16 +16,14 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
   const restar = () => {
     setContador(contador - 1);
   };
-  const acumular = () => {
-    setAcumulador(acumulador + contador);
-  };
+
   const clearCart = () => {
     setSeleccionado(false);
     setContador(0);
     setAcumulador(0);
   };
   const goCart = (x,y) => {   
-    acumular();
+    setAcumulador(acumulador + contador);
     setContador(0);
     setSeleccionado(true);
     addCart(x , y );

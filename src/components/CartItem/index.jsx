@@ -1,18 +1,21 @@
 import "./cartItemContainer.css";
-import { CartContext } from "../../context/CartContextProvider";
+import { DataBaseContext } from "../../context/DataBaseContextProvider";
 import { useContext } from "react";
+import Button from "@material-ui/core/Button";
 
-const CartItem = ({ id }) => {
-  const { cartProducts } = useContext(CartContext);
-  var product = cartProducts.filter(e => e.categoryID === id)
-console.log(product)
+
+const CartItem = ({ product, quantity }) => {
+  const { products } = useContext(DataBaseContext);
+  let itemTorender = products.find((e) => {
+    return e.id === product;
+  });
   return (
     <div className="cartItemContainer">
-      <h3>{product.quantity}</h3>
-      <img src={product.img_path} alt={product.name} />
-      <h3>{product.name}</h3>
-      <h3>$ {product.price}</h3>
-      <h3> {product.quantity}</h3> 
+      <h3> {quantity}</h3>
+      <h3>{itemTorender.name}</h3>
+      <h3> {itemTorender.price}</h3>
+      <img src={itemTorender.img_path} alt={itemTorender.name}/>
+      <Button>X</Button>
     </div>
   );
 };
