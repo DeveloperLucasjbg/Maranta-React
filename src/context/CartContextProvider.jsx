@@ -6,6 +6,7 @@ const CartContextProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([]);
   const [totalAmount, setTotalAmunt] = useState(0);
 
+
   const isIdIn = (id) => cartProducts.some((e) => e.id === id);
 
   const addCart = (id, quantity) => {
@@ -18,13 +19,23 @@ const CartContextProvider = ({ children }) => {
       setCartProducts([...cartProducts, { id: id, quantity: quantity }]);
     }
   };
-
-  
-  // const removeItem = (id) => {
-    //   let newProducts = cartProducts.map((e) => e.categoryID !== id);
-    //     setCartProducts(newProducts);
-    // // }
+  const removeItem = (id) => {
+      let newProducts = cartProducts.map((e) => e.id !== id);
+        setCartProducts(newProducts);
+        
+    }
+      
     
+    const [totalPrice, setTotalPrice] = useState(0)
+    const [priceXProd, setPriceXProd] = useState(0)
+
+    const PriceXproduct = (x,y) =>{
+      setPriceXProd (x * y)
+      setTotalPrice(totalPrice + priceXProd)
+       return priceXProd
+      }
+
+   
     useEffect(() => {
       setTotalAmunt(cartProducts.length);
     }, [cartProducts.length]);
@@ -35,9 +46,11 @@ const CartContextProvider = ({ children }) => {
         cartProducts,
         addCart,
         totalAmount,
-        // removeItem,
+        removeItem,
         setTrigger, //para cartInWidget
         trigger,
+        PriceXproduct,
+        totalPrice
       }}
     >
       {children}

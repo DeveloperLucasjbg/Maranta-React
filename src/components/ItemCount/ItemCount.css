@@ -1,9 +1,10 @@
-.countContainer{
-
-   
+input {
+  width: 3.1em !important;
+  text-align: center;
 }
-input{
-    height: 2em;
-    width:4em!important;
-    text-align: center;
+.agregar {
+  width: max-content !important;
+}
+.span {
+  width: 4.5em !important;
 }
