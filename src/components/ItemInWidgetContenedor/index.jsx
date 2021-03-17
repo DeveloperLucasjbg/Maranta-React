@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import Button from "@material-ui/core/Button";
-import "./css.css";
 import { CartContext } from "../../context/CartContextProvider";
 
 
 const ItemInWidgetContenedor = () => {
 
   const { totalPrice } = useContext(CartContext);
-
+  let toggleClass = 'bottom'
+   totalPrice !== 0 ? toggleClass = 'top' : toggleClass = 'bottom'
   return (
-    <div>
+    <div className={toggleClass}>
       <h2>Precio Final : {totalPrice}</h2>
       <div>
       <Link to="/cart" style={{textDecoration:'none'}}><Button  variant="contained"> Ir al carro</Button></Link>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -34,12 +34,27 @@ const useStyles = makeStyles((theme) => ({
 
 const Item = ({ product }) => {
   const classes = useStyles();
-  const { favsToogle, favs } = useContext(UserContext);
-
-  console.log(favs);
-
+  const { favsToogle, getFavs } = useContext(UserContext);
 
   const [favState, setFavState] = useState(false);
+  const [categoryName, setCategoryName] = useState("");
+
+  useEffect(() => {
+    if (getFavs() !== null) {
+      if (getFavs().some((e) => e.id === product.id)) {
+        setFavState(true);
+      }
+    }
+    if (product.categoryId === "1") {
+      setCategoryName("Planta de interior + Maceta");
+    } else if (product.categoryId === "2") {
+      setCategoryName("Planta de interior");
+    } else if (product.categoryId === "3") {
+      setCategoryName("Maceta");
+    } else {
+      setCategoryName("categoria sin asignar");
+    }
+  }, [categoryName, product]);
 
   return (
     <Card className={classes.root}>
@@ -53,19 +68,19 @@ const Item = ({ product }) => {
             }}
           >
             {favState ? (
-              <FavoriteIcon color={"secondary"}/>
+              <FavoriteIcon color={"secondary"} />
             ) : (
               <FavoriteBorderIcon />
-            )}  
+            )}
           </IconButton>
         }
         title={product.name}
-        subheader="Planta de Interior"
+        subheader={categoryName}
       />
       <CardMedia
         className={classes.media}
         image={product.img_path}
-        title="Paella dish"
+        title={product.name}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">

@@ -22,6 +22,7 @@ const DataBaseProvider = ({ children }) => {
       value={{
         products,
       }}
+     
     >
       {children}
     </DataBaseContext.Provider>

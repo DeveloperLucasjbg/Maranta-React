@@ -1,12 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import CartWidget from '../CartWidget';
-import { Link } from 'react-router-dom';
-import './clase.css'
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import CartWidget from "../CartWidget";
+import { Link } from "react-router-dom";
+import "./clase.css";
 import { React } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,27 +23,39 @@ const useStyles = makeStyles((theme) => ({
 const ButtonAppBar = () => {
   const classes = useStyles();
   return (
-      
     <div className={classes.root}>
-      <AppBar position="static" color='secondary'>  
+      <AppBar position="static" color="secondary">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          
-          <Typography variant="h6" className={classes.title}>Maranta</Typography>
+          <img
+            src="./logo.png"
+            alt="Maranta Hoja"
+            style={{ width: "2.7rem", marginRight: "0.5em" }}
+          />
+          <Typography variant="h6" className={classes.title}>
+            <Link
+              to="/"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                fontFamily: "Poiret One",
+                fontSize: "1.6rem",
+              }}
+            >
+              MARANTA
+            </Link>
+          </Typography>
+          <div className="clase">
+            <Link to="/">Home</Link>
+            <Link to="/categorias">Categorias</Link>
+            <Link to="/we">Nosotros</Link>
+            <Link to="/contact">Contacto</Link>
+          </div>
+          <AccountCircleIcon />
 
-            <div className='clase'>
-            <Link to='/'>Home</Link>
-            <Link to='/category'>Categorias</Link>
-            <Link to='/we'>Nosotros</Link>
-            <Link to='/contact'>Contacto</Link>
-            </div> 
-            <p  style={{textDecoration:'none'},{margin:0}}><CartWidget/></p>
-        </Toolbar>     
-      </AppBar>   
+          <CartWidget />
+        </Toolbar>
+      </AppBar>
     </div>
-   
   );
-}
+};
 export default ButtonAppBar;

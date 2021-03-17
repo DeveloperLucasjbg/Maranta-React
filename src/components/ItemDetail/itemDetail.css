@@ -1,12 +1,22 @@
 .detail{
-    width:100%;
+    width:90%;
     padding:1em 5rem 0 5rem;
     display: grid;
     grid-template-columns:1fr 1fr;
 }
 .title{
     font-size: 6vh !important;
-}
+}   
 .hide{
     visibility: hidden;
+}
+.bottom{
+    height:49vh;
+    display: flex;  
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items:center;
+}
+.bottom a{
+    width: 12em;
 }

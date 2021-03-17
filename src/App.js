@@ -8,28 +8,34 @@ import UserContextProvider from "./context/UserContextProvider";
 import DataBaseContext from "./context/DataBaseContextProvider";
 import CartContainer from "./containers/CartContainer";
 import ItemInWidgetContainer from "./containers/ItemInWidgetContainer";
-  
+import CategorysContainer from "./containers/CategorysContainer";
+import Category from "./components/Category";
+
 function App() {
   return (
     <BrowserRouter>
       <DataBaseContext>
-      <UserContextProvider>
-        <CartContext>
-          <NavBar />
-          <ItemInWidgetContainer/>
-          <Switch>
-            <Route exact path="/" children={<ItemListContainer />} />
-            <Route exact path="/category"/>
-            <Route
-              exact
-              path="/category/:id"
-              children={<ItemDetailContainer />}
-            />
-            <Route exact path="/item/:id" children={<ItemDetailContainer />} />
-            <Route exact path="/cart" children={<CartContainer />} />
-            <Route path="*" children={<div>404</div>} />
-          </Switch>
-        </CartContext>
+        <UserContextProvider>
+          <CartContext>
+            <NavBar />
+            <ItemInWidgetContainer />
+            <Switch>
+              <Route exact path="/" children={<ItemListContainer />} />
+              <Route
+                exact
+                path="/category/:id"
+                children={<ItemDetailContainer />}
+              />
+              <Route
+                exact
+                path="/categorias/"
+                children={<CategorysContainer />}
+              />
+              <Route exact path="/categorias/:id" children={<Category />} />
+              <Route exact path="/cart" children={<CartContainer />} />
+              <Route path="*" children={<div>404</div>} />
+            </Switch>
+          </CartContext>
         </UserContextProvider>
       </DataBaseContext>
     </BrowserRouter>

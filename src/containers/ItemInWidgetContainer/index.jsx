@@ -12,6 +12,7 @@ const ItemInWidgetContainer = () => {
   trigger ? (triggerClass = "") : (triggerClass = "hidden");
   return (
     <div className={`itemInWidgetContainer ${triggerClass}`}>
+      <h3>Productos en carrito</h3>
       {cartProducts.map((e) => {
         return <ItemInWidget key={e.id} product={e.id} quantity={e.quantity} />;
       })}
