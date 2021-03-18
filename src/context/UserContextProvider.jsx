@@ -4,6 +4,19 @@ export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const [favs, setFavs] = useState([]);
+  const [trigger, setTrigger] = useState(false);
+  const [userName, setUserName] = useState('Lucas');
+
+  const logOut = () => {
+    setUserName('')
+  }
+  const logIn = () => {
+    setUserName('Lucas')
+  }
+  const register = () => {
+  let tuNombre = prompt()
+  setUserName(tuNombre)
+  }
 
   const isIdIn = (id) => favs.some((e) => e.id === id);
 
@@ -21,7 +34,6 @@ const UserContextProvider = ({ children }) => {
     let FavsToStorageYUser = favs.filter((e) => e.state === true);
     localStorage.setItem("userFavs", JSON.stringify(FavsToStorageYUser));
   };
-
   const getFavs = () => {
     let storageToFavs = JSON.parse(localStorage.getItem("userFavs"));
     return storageToFavs;
@@ -33,6 +45,13 @@ const UserContextProvider = ({ children }) => {
         favs,
         favsToogle,
         getFavs,
+        trigger,
+        setTrigger,
+        userName,
+        logOut,
+        logIn,
+        register
+      
       }}
     >
       {children}
