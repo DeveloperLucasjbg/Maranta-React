@@ -1,4 +1,3 @@
-import "./App.css";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./containers/ItemListContainer";
 import ItemDetailContainer from "./containers/itemDetailContainer";
@@ -10,15 +9,18 @@ import CartContainer from "./containers/CartContainer";
 import ItemInWidgetContainer from "./containers/ItemInWidgetContainer";
 import CategorysContainer from "./containers/CategorysContainer";
 import Category from "./components/Category";
+import AcountOptions from "./components/AcountOptions"
 
 function App() {
-  return (
+
+    return (
     <BrowserRouter>
       <DataBaseContext>
         <UserContextProvider>
           <CartContext>
             <NavBar />
             <ItemInWidgetContainer />
+            <AcountOptions />
             <Switch>
               <Route exact path="/" children={<ItemListContainer />} />
               <Route

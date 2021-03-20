@@ -5,10 +5,10 @@ const CartContextProvider = ({ children }) => {
   const [trigger, setTrigger] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [totalAmount, setTotalAmunt] = useState(0);
-
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [priceXProd, setPriceXProd] = useState(0);
 
   const isIdIn = (id) => cartProducts.some((e) => e.id === id);
-
   const addCart = (id, quantity) => {
     if (isIdIn(id)) {
       let newProducts = cartProducts.map((e) =>
@@ -18,30 +18,35 @@ const CartContextProvider = ({ children }) => {
     } else {
       setCartProducts([...cartProducts, { id: id, quantity: quantity }]);
     }
+    return localStorage.setItem("UserCart", JSON.stringify(cartProducts));
   };
+  // const getCart = () =>{ setCartProducts(localStorage.getItem('UserCart'))}
+  // rompe todo
+
+  const clearCart = () => {
+    setCartProducts([]);
+    setTotalPrice(0);
+    setPriceXProd(0);
+    setTotalAmunt(0);
+  };
+
   const removeItem = (id) => {
-      let newProducts = cartProducts.map((e) => e.id !== id);
-        setCartProducts(newProducts);
-        
-    }
-      
-    
-    const [totalPrice, setTotalPrice] = useState(0)
-    const [priceXProd, setPriceXProd] = useState(0)
+    let newProducts = cartProducts.map((e) => e.id !== id);
+    return setCartProducts(newProducts);
+  };
 
-    const PriceXproduct = (x,y) =>{
-      setPriceXProd (x * y)
-      setTotalPrice(totalPrice + priceXProd)
-       return priceXProd
-      }
+  const PriceXproduct = (x, y) => {
+    setPriceXProd(x * y);
+    setTotalPrice(totalPrice + priceXProd);
+    return priceXProd;
+  };
 
-   
-    useEffect(() => {
-      setTotalAmunt(cartProducts.length);
-    }, [cartProducts.length]);
-    
-    return (
-      <CartContext.Provider
+  useEffect(() => {
+    setTotalAmunt(cartProducts.length);
+  }, [cartProducts.length]);
+
+  return (
+    <CartContext.Provider
       value={{
         cartProducts,
         addCart,
@@ -50,7 +55,9 @@ const CartContextProvider = ({ children }) => {
         setTrigger, //para cartInWidget
         trigger,
         PriceXproduct,
-        totalPrice
+        totalPrice,
+        clearCart,
+        // getCart,
       }}
     >
       {children}

@@ -1,0 +1,23 @@
+.formClass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.formClass div {
+  width: 100%;
+}
+
+.formClass input {
+  height: 2.5em;
+  width: 70%;
+  padding: 11px 20px;
+  margin: 9px 0;
+  box-sizing: border-box;
+}
+.formClass select{
+    margin-bottom: 1.3em;
+}

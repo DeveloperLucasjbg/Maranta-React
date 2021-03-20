@@ -1,0 +1,16 @@
+.UserOptionsContenedor{
+   
+    min-height:15vh;
+    height: fit-content;
+    position:fixed;
+    right:0;
+    z-index: 1;
+    width:fit-content;
+    min-width:250px;
+    padding:0.5em;
+    background-color: rgb(252, 252, 252);
+    border-bottom-left-radius:1em;
+    border-color: rgba(102, 102, 102, 0.685);
+    border-style:solid;
+    border-width: 1px;
+}

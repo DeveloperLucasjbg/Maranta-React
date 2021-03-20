@@ -1,12 +1,9 @@
 .cartContainer {
   padding: 1em;
   display: grid;
+  height: 100%;
   grid-template-columns: 1fr 1fr;
 }
-.isquierda {
+.isquierda , .derecha{
   padding: 1em;
-}
-.derecha {
-  padding: 1em;
-  text-align: center;
 }

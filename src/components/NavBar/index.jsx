@@ -1,30 +1,45 @@
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import CartWidget from "../CartWidget";
 import { Link } from "react-router-dom";
 import "./clase.css";
-import { React } from "react";
-
+import { React, useContext, useState } from "react";
+import { UserContext } from "../../context/UserContextProvider";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    color: "#ffc0cb",
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
+    fontSize: 16,
+    flexGrow: 1,
   },
   title: {
     flexGrow: 1,
   },
+  color: {
+    color: "#ffc0cb",
+  },
 }));
 
-const ButtonAppBar = () => {
+let logIn = true;
+
+const NavBar = () => {
   const classes = useStyles();
+
+  const { userName, setTrigger, trigger } = useContext(UserContext);
+
+  const handdlerTriger = () => {
+    setTrigger(!trigger);
+  };
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="secondary">
+      <AppBar position="static" style={{ backgroundColor: "#ffc0cb" }}>
         <Toolbar>
           <img
             src="./logo.png"
@@ -36,7 +51,7 @@ const ButtonAppBar = () => {
               to="/"
               style={{
                 textDecoration: "none",
-                color: "white",
+                color: "black",
                 fontFamily: "Poiret One",
                 fontSize: "1.6rem",
               }}
@@ -44,18 +59,21 @@ const ButtonAppBar = () => {
               MARANTA
             </Link>
           </Typography>
-          <div className="clase">
-            <Link to="/">Home</Link>
-            <Link to="/categorias">Categorias</Link>
-            <Link to="/we">Nosotros</Link>
-            <Link to="/contact">Contacto</Link>
-          </div>
-          <AccountCircleIcon />
+          <Typography variant="p" className={classes.menuButton}>
+            <div className="clase">
+              <Link to="/">INICIO</Link>
+              <Link to="/categorias">CATEGORIAS</Link>
+            </div>
+          </Typography>
 
+          <Button onClick={() => handdlerTriger()}>
+            <p style={{ color: "black", marginRight: "0.5em" }}>{userName}</p>
+            <AccountCircleIcon style={{ color: "black" }} />
+          </Button>
           <CartWidget />
         </Toolbar>
       </AppBar>
     </div>
   );
 };
-export default ButtonAppBar;
+export default NavBar;

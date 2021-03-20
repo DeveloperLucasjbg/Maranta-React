@@ -6,10 +6,10 @@ export const DataBaseContext = createContext();
 const DataBaseProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const db = getFirestore();
-    const productsColection = db.collection("PRODUCTOS");
-    productsColection.get().then((value) => {
+  useEffect(async() => {
+     const db = getFirestore();
+      const productsColection = await db.collection("PRODUCTOS");
+     productsColection.get().then((value) => {
       let dbCatcher = value.docs.map((element) => ({
         id: element.id,
         ...element.data(),
@@ -17,6 +17,7 @@ const DataBaseProvider = ({ children }) => {
       setProducts( dbCatcher );                                     
     });
   }, []);
+
   return (
     <DataBaseContext.Provider
       value={{

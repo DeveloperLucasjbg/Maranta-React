@@ -1,13 +1,18 @@
 .cartItemContainer {
   display: flex;
-  background-color: rgb(194, 194, 194);
-  justify-content: space-around;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width:1px;
+  border-color: rgb(233, 233, 233);
+  justify-content: space-between;
   text-align: center;
-  text-justify: center;
+  align-items: center;
+  padding-left: 1em;
 }
 .cartItemContainer img {
   width:3em;
-  height: 3em;
+  height:3em;
   object-fit: cover;
-  border-radius: 100%;
+    border-radius:0.7em;
 }

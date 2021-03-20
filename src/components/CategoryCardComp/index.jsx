@@ -12,25 +12,27 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "500",
     },
     media: {
-      height: 13,
+      height: 80,
       paddingTop: "56.25%", // 16:9
     },
     expand: {
       marginLeft: "auto",
     },
+    link: {
+      textDecoration:'none',
+    }
   }));
-  
-function CategoryCardComp({categoryId, name}) {
+function CategoryCardComp({categoryId, name, categoryImg}) {
     const classes = useStyles();
     
     return (
         <div className="contenedorInterno">
-          <Link to={`/categorias/${categoryId}`}>
+          <Link className={classes.link} to={`/categorias/${categoryId}`}>
         <Card className={classes.root}>
-          <CardHeader title={name} subheader="con maceta" />
+          <CardHeader title={name} />
           <CardMedia
             className={classes.media}
-            image="https://iberflora.feriavalencia.com/wp-content/uploads/2019/05/plantas-de-interior.jpg"
+            image={categoryImg}
             />
         </Card>
             </Link>

@@ -5,9 +5,11 @@ import { DataBaseContext } from '../../context/DataBaseContextProvider';
 
 function ItemDetailContainer() {
 
+
     const {id} = useParams();
     const { products } = useContext(DataBaseContext);
     const [productoDetalle, setProductoDetalle] = useState([]);
+
 
     useEffect(()=>{
             let toRender = products.find((products) =>{

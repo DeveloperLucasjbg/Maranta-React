@@ -11,6 +11,7 @@ const CartItem = ({ product, quantity }) => {
   const [totalPriceXProduct, setTotalPriceXProduct] = useState(0);
   useEffect(() => {
     setTotalPriceXProduct(PriceXproduct(itemTorender.price, quantity));
+    
   }, [product, quantity]);
     
     let itemTorender = products.find((e) => {
