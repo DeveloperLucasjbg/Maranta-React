@@ -46,7 +46,7 @@ const NavBar = () => {
             alt="Maranta Hoja"
             style={{ width: "2.7rem", marginRight: "0.5em" }}
           />
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h5" className={classes.title}>
             <Link
               to="/"
               style={{
@@ -59,7 +59,7 @@ const NavBar = () => {
               MARANTA
             </Link>
           </Typography>
-          <Typography variant="p" className={classes.menuButton}>
+          <Typography variant="h3" className={classes.menuButton}>
             <div className="clase">
               <Link to="/">INICIO</Link>
               <Link to="/categorias">CATEGORIAS</Link>

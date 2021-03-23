@@ -1,18 +1,22 @@
 .cartItemContainer {
-  display: flex;
+  /* padding-left: 1em; */
   background-color: rgb(255, 255, 255);
   border-radius: 0.5em;
   border-style: solid;
   border-width:1px;
   border-color: rgb(233, 233, 233);
-  justify-content: space-between;
-  text-align: center;
+  /* text-align: right; */
   align-items: center;
-  padding-left: 1em;
+  justify-content:space-around;
+  /* display: flex;  */
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr;
+
+
 }
 .cartItemContainer img {
-  width:3em;
-  height:3em;
+  width:2.5em;
+  height:2.5em;
   object-fit: cover;
-    border-radius:0.7em;
+    border-radius:0.9em;
 }

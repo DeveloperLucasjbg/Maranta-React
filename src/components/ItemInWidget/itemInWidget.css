@@ -8,7 +8,7 @@
   border-radius:220%;
   object-fit: cover;
 }
-h3 {
+p,h5 {
   margin-left: 1em;
 }
 button{

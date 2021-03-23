@@ -16,14 +16,14 @@ const ItemInWidget = ({ product }) => {
 
   return (
     <div className="itemInWidget">
-      <h4>{quantity.quantity}</h4>
+      <p>{quantity.quantity}</p>
       <img
         className="imgInWidget"
         src={itemTorender.img_path}
         alt={itemTorender.name}  
       />
-      <h4>{itemTorender.name}</h4>
-      <h4>{itemTorender.price}</h4>
+      <p>{itemTorender.name}</p>
+      <p>{itemTorender.price}</p>
       <Button onClick={() => removeItem(product)}>X</Button>
     </div>
   );

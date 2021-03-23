@@ -5,11 +5,10 @@ import { CartContext } from "../../context/CartContextProvider";
 
 const ItemInWidgetContenedor = () => {
   const { totalPrice,clearCart } = useContext(CartContext);
-  let toggleClass = "bottom";
-  totalPrice !== 0 ? (toggleClass = "top") : (toggleClass = "bottom");
   return (
-    <div className={toggleClass}>
-      <div style={{ position: "relative", bottom: -2 }}>
+    <div className='bottom'>
+      <div style={{ position: "relative", bottom: -5}}>
+        <h5>Precio total: ${totalPrice}</h5>
         <Link to="/cart" style={{ textDecoration: "none" }}>
           <Button color="primary" variant="contained"> Ir al check out</Button>
         </Link>

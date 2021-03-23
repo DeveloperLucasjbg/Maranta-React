@@ -15,7 +15,7 @@ const CategorysContainer = () => {
         let name = e.name;
         let id = e.id;
         let categoryImg = e.categoryImg;
-        return <CategoryCardComp name={name} categoryId={id} categoryImg={categoryImg}/>;
+        return <CategoryCardComp key={id} name={name} categoryId={id} categoryImg={categoryImg}/>;
       })}
     </div>
   );

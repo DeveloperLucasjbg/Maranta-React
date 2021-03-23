@@ -34,10 +34,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Item = ({ product }) => {
   const classes = useStyles();
-  const { favsToogle, getFavs } = useContext(UserContext);
-
+  const { favsToogle , getFavs } = useContext(UserContext);
   const [favState, setFavState] = useState(false);
   const [categoryName, setCategoryName] = useState("");
+
+  
 
   useEffect(() => {
     if (getFavs() !== null) {
@@ -46,14 +47,15 @@ const Item = ({ product }) => {
       }
     }
     if (product.categoryId === "1") {
-      setCategoryName("Planta de interior + Maceta");
-    } else if (product.categoryId === "2") {
       setCategoryName("Planta de interior");
+    } else if (product.categoryId === "2") {
+      setCategoryName("Planta colgante");
     } else if (product.categoryId === "3") {
-      setCategoryName("Maceta");
+      setCategoryName("Macetas");
     } else {
       setCategoryName("categoria sin asignar");
-    }
+    }     
+    
   }, [categoryName, product]);
 
   return (
@@ -63,8 +65,8 @@ const Item = ({ product }) => {
           <IconButton
             aria-label="settings"
             onClick={() => {
-              setFavState(!favState);
-              return favsToogle(product.id, favState);
+              setFavState(!favState)
+               favsToogle(product.id, favState);
             }}
           >
             {favState ? (
@@ -91,11 +93,7 @@ const Item = ({ product }) => {
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="share">${product.price}</IconButton>
-        <IconButton
-          className={clsx(classes.expand)}
-          onClick={""}
-          aria-label="show more"
-        >
+        <IconButton className={clsx(classes.expand)} aria-label="show more">
           <Link to={`/category/${product.name}`}>
             <IconButton component={AddCircleOutlineOutlinedIcon} />
           </Link>

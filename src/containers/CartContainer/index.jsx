@@ -1,44 +1,77 @@
-import { useContext , useState} from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContextProvider";
-import CartItem from "../../components/CartItem";
+import ResumenCompra from "../../components/ResumenCompra";
 import Button from "@material-ui/core/Button";
 import "./cart.css";
+import { getFirestore } from "../../firebase";
+// import  "@firebase/firestore";
+import firebase from "firebase/app";
+
 import FormularioDeUsuario from "../../components/FormularioDeUsuario";
-
 const Cart = () => {
-  const { cartProducts, totalPrice, clearCart,totalAmount } = useContext(CartContext);
+  const { cartProducts, totalPrice, clearCart, totalAmount } = useContext(
+    CartContext
+  );
   const [buyer, setBuyer] = useState({});
+  const [valid, setValid] = useState(false);
+  const [comprobante, setComprobante] = useState("");
+  const [hideClass, setHideClass] = useState("");
 
- 
-    console.log(buyer)
-    
-   const comprar = () =>{
 
-   }
+  const comprar = async () => {
+    // validar con DB si hay stock && confirmar, retornar Id como orden de compra/seguimiento QR
+    let newOrder = {
+      buyer: buyer,
+      items: [...cartProducts],
+      total: totalPrice,
+      date: firebase.firestore.Timestamp.fromDate(new Date()),
+    };
 
+    const db = getFirestore();
+    const OrdenesCollection = db.collection("ORDENES");
+    OrdenesCollection.add(newOrder).then((value) => {
+      setComprobante(value.id);
+      setHideClass(true);
+    });
+  };
+  ON CLICK MODAL 
   return (
-    <div className="cartContainer">
-      <div className="isquierda">
-      <FormularioDeUsuario setBuyer={setBuyer} />
+    <div style={{ textAlign: "center", height: "100%", marginTop: "3em" }}>
+      <h3>Resumen De Compra</h3>
+      <div className="cartContainer">
+        <div className="isquierda">
+          <FormularioDeUsuario
+            setBuyer={setBuyer}
+            buyer={buyer}
+            setValid={setValid}
+          />
+        </div>
+        <div className="derecha">
+          <ResumenCompra
+            totalAmount={totalAmount}
+            totalPrice={totalPrice}
+            cartProducts={cartProducts}
+            clearCart={clearCart}
+          />
+        </div>
       </div>
-      <div className="derecha">
-    
-        {totalAmount !== 0 ? 
-      cartProducts.map((e) => {
-          return <CartItem key={e.id} product={e.id} quantity={e.quantity} />;
-        })
-        :
-        <h2>No hay productos en tu carrito </h2>
-        }     
-        <h3>Subtotal ${totalPrice}</h3>
-        <h5>Envio : $300 </h5>
-        <h4>Costo final : $ {totalPrice + 300}</h4>
-        
-        <Button variant="outlined" onClick={() => clearCart()}>vaciar Carrito</Button>
-        <Button variant="outlined">Seguir Comprando</Button>
-      </div>
-      <Button variant="outlined"onClick={() => comprar}>Comrpar</Button>
-
+      {cartProducts.length !== 0 && valid ? (
+        <Button
+          style={{ textAlign: "center", width: "26%" }}
+          variant="outlined"
+          color="primary"
+          onClick={() => comprar()}
+        >
+          Comrpar
+        </Button>
+      ) : (
+        <Button
+          style={{ textAlign: "center", width: "26%" }}
+          variant="contained"
+        >
+          Comrpar
+        </Button>
+      )}
     </div>
   );
 };

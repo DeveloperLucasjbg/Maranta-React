@@ -12,7 +12,9 @@ const CartWidget = () => {
     <>
       <Button onClick={handdlerTriger}>
         <ShoppingCartIcon style={{ color: "black" }} />
-        <p style={{ color: "black", marginLeft: "0.3em", marginRight:'2em' }}>{totalAmount}</p>
+        <p style={{ color: "black", marginLeft: "0.3em", marginRight: "2em" }}>
+          {totalAmount}
+        </p>
       </Button>
     </>
   );

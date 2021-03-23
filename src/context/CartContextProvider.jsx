@@ -1,12 +1,16 @@
 import { createContext, useState, useEffect } from "react";
+import { DataBaseContext } from "./DataBaseContextProvider";
+import { useContext } from "react";
+
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
+  const { products } = useContext(DataBaseContext);
+
   const [trigger, setTrigger] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [totalAmount, setTotalAmunt] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [priceXProd, setPriceXProd] = useState(0);
 
   const isIdIn = (id) => cartProducts.some((e) => e.id === id);
   const addCart = (id, quantity) => {
@@ -20,13 +24,16 @@ const CartContextProvider = ({ children }) => {
     }
     return localStorage.setItem("UserCart", JSON.stringify(cartProducts));
   };
-  // const getCart = () =>{ setCartProducts(localStorage.getItem('UserCart'))}
-  // rompe todo
+ 
+
+  // console.log(JSON.parse(localStorage.getItem('UserCart'))) 
+
+  // const getCart = () =>{ setCartProducts(JSON.parse(localStorage.getItem('UserCart')))}
+  // // rompe todo
 
   const clearCart = () => {
     setCartProducts([]);
     setTotalPrice(0);
-    setPriceXProd(0);
     setTotalAmunt(0);
   };
 
@@ -35,14 +42,15 @@ const CartContextProvider = ({ children }) => {
     return setCartProducts(newProducts);
   };
 
-  const PriceXproduct = (x, y) => {
-    setPriceXProd(x * y);
-    setTotalPrice(totalPrice + priceXProd);
-    return priceXProd;
-  };
-
   useEffect(() => {
     setTotalAmunt(cartProducts.length);
+
+    cartProducts.forEach((e) => {
+      let thisPrice = products.find((product) =>  product.id === e.id)
+      let quantity = e.quantity;
+      let newPrice =  quantity * thisPrice.price ;
+      return setTotalPrice(totalPrice + newPrice);
+    });
   }, [cartProducts.length]);
 
   return (
@@ -54,10 +62,9 @@ const CartContextProvider = ({ children }) => {
         removeItem,
         setTrigger, //para cartInWidget
         trigger,
-        PriceXproduct,
         totalPrice,
+        setTotalPrice,
         clearCart,
-        // getCart,
       }}
     >
       {children}

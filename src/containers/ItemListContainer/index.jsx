@@ -1,16 +1,14 @@
-import { useContext,useEffect } from "react";
+import { useContext } from "react";
 import "./ItemListContainer.css";
 import ItemList from "../../components/ItemList";
-import { DataBaseContext } from '../../context/DataBaseContextProvider';
-
+import { DataBaseContext } from "../../context/DataBaseContextProvider";
 
 function ItemListContainer() {
-
   const { products } = useContext(DataBaseContext);
- 
-  return (  
+
+  return (
     <div className="container">
-          <ItemList products={products} />
+      <ItemList products={products} />
     </div>
   );
 }

@@ -2,14 +2,13 @@ import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import TextField from "@material-ui/core/TextField";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-
 import "./ItemCount.css";
 import React, { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
 
 const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
   const [contador, setContador] = useState(0);
-  const [acumulador, setAcumulador] = useState(0);
+
   const { addCart } = useContext(CartContext);
 
   const sumar = () => {
@@ -20,10 +19,9 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
   };
 
   const goCart = (x, y) => {
-    setAcumulador(acumulador + contador);
-    setContador(0);
     setSeleccionado(true);
     addCart(x, y);
+    setContador(0);
   };
 
   return (
@@ -51,7 +49,9 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
           required="true"
           value={contador}
         />
-        {contador < stock ? (
+
+        {/* sumar items ya agregados  */}
+        {contador  < stock ? (
           <Button
             className="span"
             color={"secondary"}
@@ -63,15 +63,18 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
         ) : (
           <Button className="span">+</Button>
         )}
-      <Button
-        onClick={() => goCart(productoDetalle.id, acumulador)}
-        variant="contained"
-        color="primary"
-        className="agregar"
-      >
-        Agregar al carro
-        <AddShoppingCartIcon style={{ marginLeft: "0.2em" }} />
-      </Button>
+        <Button
+          onClick={() => {
+            goCart(productoDetalle.id, contador);
+            
+          }}
+          variant="contained"
+          color="primary"
+          className="agregar"
+        >
+          Agregar al carro
+          <AddShoppingCartIcon style={{ marginLeft: "0.2em" }} />
+        </Button>
       </ButtonGroup>
     </div>
   );

@@ -3,20 +3,29 @@ import { createContext, useState } from "react";
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
-  const [favs, setFavs] = useState([]);
   const [trigger, setTrigger] = useState(false);
-  const [userName, setUserName] = useState('Lucas');
+  const [userName, setUserName] = useState("Lucas");
 
+  let favs = [{}];
+  const getFavs = () => {
+    let storageToFavs = JSON.parse(localStorage.getItem("userFavs"));
+    favs = storageToFavs
+    return storageToFavs;
+  };
+
+  // falta todo en firestore / formulario de registro / login modal
   const logOut = () => {
-    setUserName('')
-  }
+    setUserName("");
+  };
   const logIn = () => {
-    setUserName('Lucas')
-  }
+    setUserName("Lucas");
+  };
   const register = () => {
-  let tuNombre = prompt()
-  setUserName(tuNombre)
-  }
+    let tuNombre = prompt();
+    setUserName(tuNombre);
+  };
+
+  ////
 
   const isIdIn = (id) => favs.some((e) => e.id === id);
 
@@ -25,18 +34,14 @@ const UserContextProvider = ({ children }) => {
       let newFavs = favs.map((e) =>
         e.id === id ? { ...e, id: id, state: !boolean } : e
       );
-      setFavs(newFavs);
+      favs =(newFavs);
     } else {
-      setFavs([...favs, { id: id, state: !boolean }]);
+      favs = ([...favs, { id: id, state: !boolean }]);
     }
 
     // en que momento ejecutarlo para que este actualizado el valor
     let FavsToStorageYUser = favs.filter((e) => e.state === true);
     localStorage.setItem("userFavs", JSON.stringify(FavsToStorageYUser));
-  };
-  const getFavs = () => {
-    let storageToFavs = JSON.parse(localStorage.getItem("userFavs"));
-    return storageToFavs;
   };
 
   return (
@@ -50,8 +55,7 @@ const UserContextProvider = ({ children }) => {
         userName,
         logOut,
         logIn,
-        register
-      
+        register,
       }}
     >
       {children}
