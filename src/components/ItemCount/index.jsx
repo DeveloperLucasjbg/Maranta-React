@@ -7,9 +7,10 @@ import React, { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
 
 const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
+  const { addCart } = useContext(CartContext);
   const [contador, setContador] = useState(0);
 
-  const { addCart } = useContext(CartContext);
+  
 
   const sumar = () => {
     setContador(contador + 1);
@@ -50,7 +51,7 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
           value={contador}
         />
 
-        {/* sumar items ya agregados  */}
+        {/* Validar con Items ya agregados del carrito */}
         {contador  < stock ? (
           <Button
             className="span"

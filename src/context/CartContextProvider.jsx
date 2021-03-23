@@ -24,12 +24,13 @@ const CartContextProvider = ({ children }) => {
     }
     return localStorage.setItem("UserCart", JSON.stringify(cartProducts));
   };
- 
 
-  // console.log(JSON.parse(localStorage.getItem('UserCart'))) 
+  // ******* NOSE COMO RECUPERAR EL STORAGE DEL CARRITO SIN QUE ROMPA TODO  *******        #
 
+  // console.log(JSON.parse(localStorage.getItem('UserCart')))
   // const getCart = () =>{ setCartProducts(JSON.parse(localStorage.getItem('UserCart')))}
-  // // rompe todo
+
+  //## #### ### ### ### ### ### ## ## ### #### ### # #### # ## ## ### #### ## ## #### ### ##
 
   const clearCart = () => {
     setCartProducts([]);
@@ -38,17 +39,17 @@ const CartContextProvider = ({ children }) => {
   };
 
   const removeItem = (id) => {
-    let newProducts = cartProducts.map((e) => e.id !== id);
+    let newProducts = cartProducts.filter((e) => e.id !== id);
+
     return setCartProducts(newProducts);
   };
-
   useEffect(() => {
     setTotalAmunt(cartProducts.length);
 
     cartProducts.forEach((e) => {
-      let thisPrice = products.find((product) =>  product.id === e.id)
+      let thisPrice = products.find((product) => product.id === e.id);
       let quantity = e.quantity;
-      let newPrice =  quantity * thisPrice.price ;
+      let newPrice = quantity * thisPrice.price;
       return setTotalPrice(totalPrice + newPrice);
     });
   }, [cartProducts.length]);
