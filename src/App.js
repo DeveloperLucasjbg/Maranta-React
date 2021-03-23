@@ -16,8 +16,8 @@ function App() {
     return (
     <BrowserRouter>
       <DataBaseContext>
-        <UserContextProvider>
           <CartContext>
+        <UserContextProvider>
             <NavBar />
             <ItemInWidgetContainer />
             <AcountOptions />
@@ -37,8 +37,8 @@ function App() {
               <Route exact path="/cart" children={<CartContainer />} />
               <Route path="*" children={<div>404</div>} />
             </Switch>
-          </CartContext>
         </UserContextProvider>
+          </CartContext>
       </DataBaseContext>
     </BrowserRouter>
   );

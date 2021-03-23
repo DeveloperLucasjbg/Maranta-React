@@ -9,10 +9,10 @@ import CardMedia from "@material-ui/core/CardMedia";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: "500",
+    Width: "50",
     },
     media: {
-      height: 80,
+      height:0,
       paddingTop: "56.25%", // 16:9
     },
     expand: {

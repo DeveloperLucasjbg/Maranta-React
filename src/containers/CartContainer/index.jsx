@@ -17,7 +17,6 @@ const Cart = () => {
   const [comprobante, setComprobante] = useState("");
   const [hideClass, setHideClass] = useState("");
 
-
   const comprar = async () => {
     // validar con DB si hay stock && confirmar, retornar Id como orden de compra/seguimiento QR
     let newOrder = {
@@ -34,7 +33,6 @@ const Cart = () => {
       setHideClass(true);
     });
   };
-  ON CLICK MODAL 
   return (
     <div style={{ textAlign: "center", height: "100%", marginTop: "3em" }}>
       <h3>Resumen De Compra</h3>

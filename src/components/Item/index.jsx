@@ -51,10 +51,12 @@ const Item = ({ product }) => {
     } else if (product.categoryId === "2") {
       setCategoryName("Planta colgante");
     } else if (product.categoryId === "3") {
-      setCategoryName("Macetas");
-    } else {
+      setCategoryName("Macetas y portamacetas");
+    } else if (product.categoryId === "4") {
+      setCategoryName("Accesorios");
+    }   else {
       setCategoryName("categoria sin asignar");
-    }     
+    }       
     
   }, [categoryName, product]);
 
