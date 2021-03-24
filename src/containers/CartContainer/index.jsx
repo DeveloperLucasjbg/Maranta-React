@@ -16,21 +16,47 @@ const Cart = () => {
   const [valid, setValid] = useState(false);
   const [comprobante, setComprobante] = useState("");
   const [hideClass, setHideClass] = useState("hide");
+  const [linkDePago, setLinkDePago] = useState('');
 
   const comprar = async () => {
-    // validar con DB si hay stock && confirmar, retornar Id como orden de compra/seguimiento QR
+    
     let newOrder = {
       buyer: buyer,
       items: [...cartProducts],
       total: totalPrice,
       date: firebase.firestore.Timestamp.fromDate(new Date()),
     };
-
+    console.log(newOrder);
     const db = getFirestore();
     const OrdenesCollection = db.collection("ORDENES");
     OrdenesCollection.add(newOrder).then((value) => {
       setComprobante(value.id);
     });
+    fetch("https://api.mercadopago.com/checkout/preferences", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+        Authorization:
+          "Bearer TEST-2037923620072575-032400-f9e4cdba0ddb2930e51b64743180c734-264186225",
+      },
+      body: JSON.stringify({
+        items: [
+          { 
+            title : "NO LLEGO A MODIFICAR EL JSON" ,
+            description: "PLanta",
+            quantity: 2, 
+            currency_id: "ARS",
+            unit_price: 13.0,
+          },
+        ],
+      }),
+    })
+      .then((result) => {
+        return result.json();
+      })
+      .then((value) => {
+        setLinkDePago(value.init_point);
+      });
     setHideClass("");
   };
   return (
@@ -70,7 +96,7 @@ const Cart = () => {
           Comrpar
         </Button>
       )}
-      <ComprobanteDePago comprobante={comprobante} hideClass={hideClass} />
+      <ComprobanteDePago comprobante={comprobante} hideClass={hideClass} linkDePago={linkDePago}/>
     </div>
   );
 };
