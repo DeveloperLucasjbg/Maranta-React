@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
- 
 }
 .formClass div {
   width: 80%;
@@ -10,10 +9,7 @@
 
 .formClass input {
   width: 70%;
-
 }
 .formClass button {
-margin-top: 2em;
-  
+  margin-top: 2em;
 }
-

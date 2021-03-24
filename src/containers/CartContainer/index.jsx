@@ -16,10 +16,9 @@ const Cart = () => {
   const [valid, setValid] = useState(false);
   const [comprobante, setComprobante] = useState("");
   const [hideClass, setHideClass] = useState("hide");
-  const [linkDePago, setLinkDePago] = useState('');
+  const [linkDePago, setLinkDePago] = useState("");
 
   const comprar = async () => {
-    
     let newOrder = {
       buyer: buyer,
       items: [...cartProducts],
@@ -41,10 +40,10 @@ const Cart = () => {
       },
       body: JSON.stringify({
         items: [
-          { 
-            title : "NO LLEGO A MODIFICAR EL JSON" ,
+          {
+            title: "NO LLEGO A MODIFICAR EL JSON",
             description: "PLanta",
-            quantity: 2, 
+            quantity: 2,
             currency_id: "ARS",
             unit_price: 13.0,
           },
@@ -93,10 +92,14 @@ const Cart = () => {
           style={{ textAlign: "center", width: "26%" }}
           variant="contained"
         >
-          Comrpar
+          Comprar
         </Button>
       )}
-      <ComprobanteDePago comprobante={comprobante} hideClass={hideClass} linkDePago={linkDePago}/>
+      <ComprobanteDePago
+        comprobante={comprobante}
+        hideClass={hideClass}
+        linkDePago={linkDePago}
+      />
     </div>
   );
 };

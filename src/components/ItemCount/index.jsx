@@ -50,8 +50,6 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
           required="true"
           value={contador}
         />
-
-        {/* Validar con Items ya agregados del carrito */}
         {contador < stock ? (
           <Button
             className="span"

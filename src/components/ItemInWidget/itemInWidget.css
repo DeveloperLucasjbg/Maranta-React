@@ -5,12 +5,13 @@
   margin: auto;
   width: 3em;
   height: 3em;
-  border-radius:220%;
+  border-radius: 220%;
   object-fit: cover;
 }
-p,h5 {
+p,
+h5 {
   margin-left: 1em;
 }
-button{
-  margin:1em;
+button {
+  margin: 1em;
 }

@@ -8,9 +8,9 @@
 .title {
   font-size: 5vh !important;
 }
-.detailImg{
-    max-height: 80vh;
-    object-fit: cover;
+.detailImg {
+  max-height: 80vh;
+  object-fit: cover;
 }
 .hide {
   visibility: hidden;

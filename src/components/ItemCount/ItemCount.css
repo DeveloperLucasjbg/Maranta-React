@@ -1,10 +1,10 @@
 .countContainer input {
-  width:6em !important;
+  width: 6em !important;
   text-align: center;
 }
 .agregar {
-padding: auto;
+  padding: auto;
 }
-.hiddenItems{
+.hiddenItems {
   visibility: hidden;
 }

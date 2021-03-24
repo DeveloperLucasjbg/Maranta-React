@@ -3,9 +3,10 @@
   height: 100%;
   grid-template-columns: 1fr 1fr;
 }
-.isquierda , .derecha{
+.isquierda,
+.derecha {
   height: 100%;
 }
-.hide{
-  visibility:hidden;
+.hide {
+  visibility: hidden;
 }

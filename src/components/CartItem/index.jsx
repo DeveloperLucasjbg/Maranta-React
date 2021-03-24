@@ -14,7 +14,6 @@ const CartItem = ({ product, quantity }) => {
 
   const totalXproduct = itemTorender.price * quantity;
 
-
   return (
     <div className="cartItemContainer">
       <h3> {quantity}</h3>

@@ -34,11 +34,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Item = ({ product }) => {
   const classes = useStyles();
-  const { favsToogle , getFavs } = useContext(UserContext);
+  const { favsToogle, getFavs } = useContext(UserContext);
   const [favState, setFavState] = useState(false);
   const [categoryName, setCategoryName] = useState("");
-
-  
 
   useEffect(() => {
     if (getFavs() !== null) {
@@ -54,10 +52,9 @@ const Item = ({ product }) => {
       setCategoryName("Macetas y portamacetas");
     } else if (product.categoryId === "4") {
       setCategoryName("Accesorios");
-    }   else {
+    } else {
       setCategoryName("categoria sin asignar");
-    }       
-    
+    }
   }, [categoryName, product]);
 
   return (
@@ -67,8 +64,8 @@ const Item = ({ product }) => {
           <IconButton
             aria-label="settings"
             onClick={() => {
-              setFavState(!favState)
-               favsToogle(product.id, favState);
+              setFavState(!favState);
+              favsToogle(product.id, favState);
             }}
           >
             {favState ? (

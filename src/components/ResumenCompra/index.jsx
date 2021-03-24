@@ -23,8 +23,9 @@ const ResumenCompra = ({
       ) : (
         <h3>No hay productos en tu carrito </h3>
       )}
-      <h3 style={{textAlign:'end', paddingRight:'2em'}}>Costo final : $ {totalPrice}</h3>
-    
+      <h3 style={{ textAlign: "end", paddingRight: "2em" }}>
+        Costo final : $ {totalPrice}
+      </h3>
 
       <div>
         <Button variant="outlined" onClick={() => clearCart()}>

@@ -7,7 +7,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import CartWidget from "../CartWidget";
 import { Link } from "react-router-dom";
 import "./clase.css";
-import { React, useContext, useState } from "react";
+import { React, useContext } from "react";
 import { UserContext } from "../../context/UserContextProvider";
 const useStyles = makeStyles((theme) => ({
   root: {

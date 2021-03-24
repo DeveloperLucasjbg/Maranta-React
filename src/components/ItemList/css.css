@@ -1,7 +1,6 @@
-.grid{ 
-    padding:3.3%;
-    margin:1vh;
-    display: grid;
-    grid-template-columns: repeat(4,1fr) ;
-   
+.grid {
+  padding: 3.3%;
+  margin: 1vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }

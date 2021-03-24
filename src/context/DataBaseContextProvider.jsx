@@ -18,7 +18,6 @@ const DataBaseProvider = ({ children }) => {
     });
   }, []);
 
-
   return (
     <DataBaseContext.Provider
       value={{
