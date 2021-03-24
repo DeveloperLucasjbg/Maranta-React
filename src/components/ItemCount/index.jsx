@@ -10,8 +10,6 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
   const { addCart } = useContext(CartContext);
   const [contador, setContador] = useState(0);
 
-  
-
   const sumar = () => {
     setContador(contador + 1);
   };
@@ -41,7 +39,9 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
             -
           </Button>
         ) : (
-          <Button className="span">-</Button>
+          <Button disabled="true" className="span">
+            -
+          </Button>
         )}
 
         <TextField
@@ -52,7 +52,7 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
         />
 
         {/* Validar con Items ya agregados del carrito */}
-        {contador  < stock ? (
+        {contador < stock ? (
           <Button
             className="span"
             color={"secondary"}
@@ -62,20 +62,33 @@ const ItemCount = ({ stock, setSeleccionado, productoDetalle }) => {
             +
           </Button>
         ) : (
-          <Button className="span">+</Button>
+          <Button disabled="true" className="span">
+            +
+          </Button>
         )}
-        <Button
-          onClick={() => {
-            goCart(productoDetalle.id, contador);
-            
-          }}
-          variant="contained"
-          color="primary"
-          className="agregar"
-        >
-          Agregar al carro
-          <AddShoppingCartIcon style={{ marginLeft: "0.2em" }} />
-        </Button>
+        {contador !== 0 ? (
+          <Button
+            onClick={() => {
+              goCart(productoDetalle.id, contador);
+            }}
+            variant="contained"
+            color="primary"
+            className="agregar"
+          >
+            Agregar al carro
+            <AddShoppingCartIcon style={{ marginLeft: "0.2em" }} />
+          </Button>
+        ) : (
+          <Button
+            variant="outlined"
+            color="primary"
+            className="agregar"
+            disabled="true"
+          >
+            Agregar al carro
+            <AddShoppingCartIcon style={{ marginLeft: "0.2em" }} />
+          </Button>
+        )}
       </ButtonGroup>
     </div>
   );

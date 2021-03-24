@@ -9,15 +9,14 @@ import CartContainer from "./containers/CartContainer";
 import ItemInWidgetContainer from "./containers/ItemInWidgetContainer";
 import CategorysContainer from "./containers/CategorysContainer";
 import Category from "./components/Category";
-import AcountOptions from "./components/AcountOptions"
+import AcountOptions from "./components/AcountOptions";
 
 function App() {
-
-    return (
+  return (
     <BrowserRouter>
       <DataBaseContext>
-          <CartContext>
-        <UserContextProvider>
+        <CartContext>
+          <UserContextProvider>
             <NavBar />
             <ItemInWidgetContainer />
             <AcountOptions />
@@ -37,8 +36,8 @@ function App() {
               <Route exact path="/cart" children={<CartContainer />} />
               <Route path="*" children={<div>404</div>} />
             </Switch>
-        </UserContextProvider>
-          </CartContext>
+          </UserContextProvider>
+        </CartContext>
       </DataBaseContext>
     </BrowserRouter>
   );

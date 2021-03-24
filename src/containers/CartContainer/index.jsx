@@ -4,10 +4,10 @@ import ResumenCompra from "../../components/ResumenCompra";
 import Button from "@material-ui/core/Button";
 import "./cart.css";
 import { getFirestore } from "../../firebase";
-// import  "@firebase/firestore";
 import firebase from "firebase/app";
-
 import FormularioDeUsuario from "../../components/FormularioDeUsuario";
+import ComprobanteDePago from "../../components/ComprobanteDePago";
+
 const Cart = () => {
   const { cartProducts, totalPrice, clearCart, totalAmount } = useContext(
     CartContext
@@ -15,7 +15,7 @@ const Cart = () => {
   const [buyer, setBuyer] = useState({});
   const [valid, setValid] = useState(false);
   const [comprobante, setComprobante] = useState("");
-  const [hideClass, setHideClass] = useState("");
+  const [hideClass, setHideClass] = useState("hide");
 
   const comprar = async () => {
     // validar con DB si hay stock && confirmar, retornar Id como orden de compra/seguimiento QR
@@ -30,8 +30,8 @@ const Cart = () => {
     const OrdenesCollection = db.collection("ORDENES");
     OrdenesCollection.add(newOrder).then((value) => {
       setComprobante(value.id);
-      setHideClass(true);
     });
+    setHideClass("");
   };
   return (
     <div style={{ textAlign: "center", height: "100%", marginTop: "3em" }}>
@@ -70,6 +70,7 @@ const Cart = () => {
           Comrpar
         </Button>
       )}
+      <ComprobanteDePago comprobante={comprobante} hideClass={hideClass} />
     </div>
   );
 };

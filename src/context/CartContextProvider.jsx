@@ -26,10 +26,8 @@ const CartContextProvider = ({ children }) => {
   };
 
   // ******* NOSE COMO RECUPERAR EL STORAGE DEL CARRITO SIN QUE ROMPA TODO  *******        #
-
   // console.log(JSON.parse(localStorage.getItem('UserCart')))
   // const getCart = () =>{ setCartProducts(JSON.parse(localStorage.getItem('UserCart')))}
-
   //## #### ### ### ### ### ### ## ## ### #### ### # #### # ## ## ### #### ## ## #### ### ##
 
   const clearCart = () => {
@@ -37,15 +35,12 @@ const CartContextProvider = ({ children }) => {
     setTotalPrice(0);
     setTotalAmunt(0);
   };
-
   const removeItem = (id) => {
     let newProducts = cartProducts.filter((e) => e.id !== id);
-
-    return setCartProducts(newProducts);
+    setCartProducts(newProducts);
   };
   useEffect(() => {
     setTotalAmunt(cartProducts.length);
-
     cartProducts.forEach((e) => {
       let thisPrice = products.find((product) => product.id === e.id);
       let quantity = e.quantity;
@@ -64,7 +59,6 @@ const CartContextProvider = ({ children }) => {
         setTrigger, //para cartInWidget
         trigger,
         totalPrice,
-        setTotalPrice,
         clearCart,
       }}
     >

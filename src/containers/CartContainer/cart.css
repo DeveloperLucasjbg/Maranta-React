@@ -6,3 +6,6 @@
 .isquierda , .derecha{
   height: 100%;
 }
+.hide{
+  visibility:hidden;
+}

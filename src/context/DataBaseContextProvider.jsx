@@ -8,7 +8,7 @@ const DataBaseProvider = ({ children }) => {
 
   useEffect(() => {
     const db = getFirestore();
-    const productsColection =   db.collection("PRODUCTOS");
+    const productsColection = db.collection("PRODUCTOS");
     productsColection.get().then((value) => {
       let dbCatcher = value.docs.map((element) => ({
         id: element.id,
@@ -23,7 +23,6 @@ const DataBaseProvider = ({ children }) => {
     <DataBaseContext.Provider
       value={{
         products,
-        
       }}
     >
       {children}

@@ -16,7 +16,7 @@ const Category = () => {
     } else if (id === "2") {
       setCategoryName("Plantas Colgantes");
     } else if (id === "3") {
-      setCategoryName("Masetas y Portamasetas");
+      setCategoryName("Macetas y Portamacetas");
     } else if (id === "4") {
       setCategoryName("Accesorios");
     } else {
