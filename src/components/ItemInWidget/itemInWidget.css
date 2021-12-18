@@ -1,17 +1,13 @@
 .itemInWidget {
-  display: flex;
+  display: grid;
+  align-items: center;
+  justify-items:center;
+  grid-template-columns: repeat(5,1fr);
+  width: 100%;
 }
 .imgInWidget {
-  margin: auto;
-  width: 3em;
-  height: 3em;
-  border-radius: 220%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 200%;
   object-fit: cover;
-}
-p,
-h5 {
-  margin-left: 1em;
-}
-button {
-  margin: 1em;
 }

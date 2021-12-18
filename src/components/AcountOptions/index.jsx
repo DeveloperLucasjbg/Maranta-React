@@ -4,9 +4,8 @@ import { UserContext } from "../../context/UserContextProvider";
 import "./UserOptionsContenedor.css";
 
 const AcountOptions = () => {
-  const { trigger, setTrigger, userName, logOut, logIn, register } = useContext(
-    UserContext
-  );
+  const { trigger, setTrigger, userName, logOut, logIn, register } =
+    useContext(UserContext);
   const [triggerClass, setTriggerClass] = useState("hidden");
 
   const mapClick = (e) => {

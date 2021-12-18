@@ -2,14 +2,9 @@
   visibility: hidden;
 }
 .itemInWidgetContainer {
-  min-height: 40vh;
-  height: max-content;
   position: fixed;
   right: 0;
   z-index: 1;
-  width: max-content;
-  min-width: 350px;
-  padding: 0.5em;
   background-color: rgb(252, 252, 252);
   border-bottom-left-radius: 1em;
   border-color: rgba(102, 102, 102, 0.685);
@@ -17,6 +12,3 @@
   border-width: 1px;
 }
 
-h4 {
-  margin-left: 1.5em;
-}

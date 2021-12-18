@@ -3,15 +3,14 @@ import { useContext } from "react";
 import Button from "@material-ui/core/Button";
 import { CartContext } from "../../context/CartContextProvider";
 
-const ItemInWidgetContenedor = () => {
+const ItemInWidgetBotones = () => {
   const { totalPrice, clearCart } = useContext(CartContext);
   return (
     <div className="bottom">
-      <div style={{ position: "relative", bottom: -5 }}>
-        <h5>Precio total: ${totalPrice}</h5>
+      <div>
+        <p>Subtotal: ${totalPrice}</p>
         <Link to="/cart" style={{ textDecoration: "none" }}>
           <Button color="primary" variant="contained">
-            {" "}
             Ir al check out
           </Button>
         </Link>
@@ -23,4 +22,4 @@ const ItemInWidgetContenedor = () => {
   );
 };
 
-export default ItemInWidgetContenedor;
+export default ItemInWidgetBotones;

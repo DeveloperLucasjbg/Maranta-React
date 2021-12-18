@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import ItemInWidget from "../../components/ItemInWidget";
-import ItemInWidgetContenedor from "../../components/ItemInWidgetContenedor";
-
+import ItemInWidgetBotones from "../../components/ItemInWidgetBotones";
 import "./itemInWidgetContainer.css";
 import { CartContext } from "../../context/CartContextProvider";
 
@@ -29,12 +28,12 @@ const ItemInWidgetContainer = () => {
 
   return (
     <div className={`itemInWidgetContainer ${triggerClass}`}>
-      <h3>Productos en carrito</h3>
+      <h3>Tu Compra</h3>
 
       {cartProducts.map((e) => {
         return <ItemInWidget key={e.id} product={e.id} />;
       })}
-      <ItemInWidgetContenedor />
+      <ItemInWidgetBotones />
     </div>
   );
 };

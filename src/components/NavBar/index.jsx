@@ -27,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-let logIn = true;
-
 const NavBar = () => {
   const classes = useStyles();
 
@@ -63,6 +61,7 @@ const NavBar = () => {
             <div className="clase">
               <Link to="/">INICIO</Link>
               <Link to="/categorias">CATEGORIAS</Link>
+              <Link to="/contacto">COTACTO</Link>
             </div>
           </Typography>
 

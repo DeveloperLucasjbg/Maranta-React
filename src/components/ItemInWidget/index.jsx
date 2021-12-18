@@ -14,17 +14,28 @@ const ItemInWidget = ({ product }) => {
 
   const quantity = cartProducts.find((e) => e.id === product);
 
+  // deveria ir en utils
+  let acortadorDeNombre = (nombre) => {
+    let xNumer = 11;
+    if (nombre.length > xNumer) {
+      let acortado = nombre.substring(0, xNumer) + "...";
+      return acortado;
+    } else {
+      return nombre;
+    }
+  };
+
   return (
     <div className="itemInWidget">
-      <p>{quantity.quantity}</p>
+      <spam>{quantity.quantity}</spam>
       <img
         className="imgInWidget"
         src={itemTorender.img_path}
         alt={itemTorender.name}
       />
-      <p>{itemTorender.name}</p>
-      <p>{itemTorender.price}</p>
-      <Button onClick={() => removeItem(product)}>X</Button>
+      <spam>{acortadorDeNombre(itemTorender.name)}</spam>
+      <spam>{itemTorender.price}</spam>
+      <Button className='X' onClick={() => removeItem(product)}>X</Button>
     </div>
   );
 };

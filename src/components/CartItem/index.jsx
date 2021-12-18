@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 
 const CartItem = ({ product, quantity }) => {
   const { products } = useContext(DataBaseContext);
-  const { removeItem, totalPrice, setTotalPrice } = useContext(CartContext);
+  const { removeItem  } = useContext(CartContext);
 
   let itemTorender = products.find((e) => {
     return e.id === product;

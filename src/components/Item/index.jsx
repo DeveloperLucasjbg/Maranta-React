@@ -15,6 +15,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 
 import { UserContext } from "../../context/UserContextProvider";
+import { CartContext } from "../../context/CartContextProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
 const Item = ({ product }) => {
   const classes = useStyles();
   const { favsToogle, getFavs } = useContext(UserContext);
+  const { sumarDeAUno } = useContext(CartContext);
+
   const [favState, setFavState] = useState(false);
   const [categoryName, setCategoryName] = useState("");
 
@@ -78,11 +81,13 @@ const Item = ({ product }) => {
         title={product.name}
         subheader={categoryName}
       />
-      <CardMedia
-        className={classes.media}
-        image={product.img_path}
-        title={product.name}
-      />
+      <Link to={`/category/${product.name}`}>
+        <CardMedia
+          className={classes.media}
+          image={product.img_path}
+          title={product.name}
+        />
+      </Link>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook
@@ -93,9 +98,7 @@ const Item = ({ product }) => {
       <CardActions disableSpacing>
         <IconButton aria-label="share">${product.price}</IconButton>
         <IconButton className={clsx(classes.expand)} aria-label="show more">
-          <Link to={`/category/${product.name}`}>
-            <IconButton component={AddCircleOutlineOutlinedIcon} />
-          </Link>
+          <IconButton onClick={()=>sumarDeAUno(product.id)} component={AddCircleOutlineOutlinedIcon} />
         </IconButton>
       </CardActions>
     </Card>

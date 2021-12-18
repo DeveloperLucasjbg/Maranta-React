@@ -5,8 +5,11 @@ import { useContext } from "react";
 
 const CartWidget = () => {
   const { totalAmount, setTrigger, trigger } = useContext(CartContext);
+
   const handdlerTriger = () => {
-    setTrigger(!trigger);
+    if (totalAmount !== 0) {
+      setTrigger(!trigger);
+    }
   };
   return (
     <>

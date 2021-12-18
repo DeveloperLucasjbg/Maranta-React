@@ -24,12 +24,14 @@ const CartContextProvider = ({ children }) => {
     }
     return localStorage.setItem("UserCart", JSON.stringify(cartProducts));
   };
+  const sumarDeAUno = (id) => {
+    addCart(id, 1);
+  };
 
   // ******* NOSE COMO RECUPERAR EL STORAGE DEL CARRITO SIN QUE ROMPA TODO  *******        #
   // console.log(JSON.parse(localStorage.getItem('UserCart')))
   // const getCart = () =>{ setCartProducts(JSON.parse(localStorage.getItem('UserCart')))}
   //## #### ### ### ### ### ### ## ## ### #### ### # #### # ## ## ### #### ## ## #### ### ##
-
   const clearCart = () => {
     setCartProducts([]);
     setTotalPrice(0);
@@ -54,6 +56,7 @@ const CartContextProvider = ({ children }) => {
       value={{
         cartProducts,
         addCart,
+        sumarDeAUno,
         totalAmount,
         removeItem,
         setTrigger, //para cartInWidget
